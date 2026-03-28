@@ -7,749 +7,1123 @@
 <title>Mojo Digital Agency — Automated Systems for Local Businesses</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <style>
-/* ── RESET ── */
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-a,a:visited{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
 
-/* ── TOKENS ── */
-:root{
-–dark:#0D0D14;
-–dark2:#13131E;
-–dark3:#1A1A2E;
-–gold:#C9A84C;
-–gold2:#E8C96A;
-–orange:#E8681A;
-–white:#F5F0E8;
-–gray:#8A8A9A;
-–green:#1A7A3C;
-–border:rgba(201,168,76,0.15);
-–border2:rgba(201,168,76,0.07);
+/* =============================================
+RESET & BASE
+============================================= */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+background: #0D0D14;
+color: #F5F0E8;
+font-family: ‘DM Sans’, system-ui, -apple-system, sans-serif;
+font-weight: 300;
+overflow-x: hidden;
+-webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* =============================================
+DESIGN TOKENS
+============================================= */
+:root {
+–dark:    #0D0D14;
+–dark2:   #13131E;
+–dark3:   #1A1A2A;
+–gold:    #C9A84C;
+–gold2:   #E8C96A;
+–orange:  #E8681A;
+–white:   #F5F0E8;
+–gray:    #8A8A9A;
+–gray2:   #6A6A7A;
+–border:  rgba(201,168,76,0.15);
+–border2: rgba(201,168,76,0.07);
+–nav-h:   68px;
 }
 
-/* ── BASE ── */
-html{scroll-behavior:smooth;overflow-x:hidden;background:var(–dark);color:var(–white)}
-body{background:var(–dark);color:var(–white);font-family:‘DM Sans’,system-ui,sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-
-/* ── NOISE ── */
-body::after{
-content:’’;position:fixed;inset:0;pointer-events:none;z-index:9000;opacity:.4;
-background-image:url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘n’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23n)’ opacity=‘0.04’/%3E%3C/svg%3E”);
+/* =============================================
+UTILITY
+============================================= */
+.reveal {
+opacity: 0;
+transform: translateY(24px);
+transition: opacity 0.7s ease, transform 0.7s ease;
 }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
 
-/* ═══════════════════════════════════
+/* =============================================
 NAV
-═══════════════════════════════════ */
-nav{
-position:fixed;top:0;left:0;right:0;z-index:500;
-height:68px;padding:0 5%;
-display:flex;align-items:center;justify-content:space-between;
-background:rgba(13,13,20,0.96);
-border-bottom:1px solid var(–border2);
-backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+============================================= */
+nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+height: var(–nav-h);
+z-index: 900;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 5%;
+background: rgba(13,13,20,0.97);
+border-bottom: 1px solid var(–border2);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
 }
-.nav-logo{
-font-family:‘Bebas Neue’,Impact,sans-serif;
-font-size:26px;letter-spacing:3px;
-color:var(–gold);text-decoration:none;flex-shrink:0;
+
+.nav-logo {
+font-family: ‘Bebas Neue’, ‘Arial Narrow’, sans-serif;
+font-size: 24px;
+letter-spacing: 3px;
+color: var(–gold);
+flex-shrink: 0;
 }
-.nav-logo span{color:var(–white)}
-.nav-links{
-display:flex;gap:36px;list-style:none;
-position:absolute;left:50%;transform:translateX(-50%);
+.nav-logo span { color: var(–white); }
+
+/* Desktop nav links — hidden on mobile */
+.nav-links {
+display: flex;
+align-items: center;
+gap: 32px;
+list-style: none;
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
 }
-.nav-links a{
-font-size:11px;font-weight:500;letter-spacing:2px;
-text-transform:uppercase;color:var(–gray);
-transition:color .25s;white-space:nowrap;
+.nav-links a {
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(–gray);
+transition: color 0.2s;
+white-space: nowrap;
 }
-.nav-links a:hover{color:var(–white)}
+.nav-links a:hover { color: var(–white); }
 
 /* Demo dropdown */
-.nav-dropdown{position:relative}
-.nav-dropdown-trigger{
-font-size:11px;font-weight:500;letter-spacing:2px;
-text-transform:uppercase;color:var(–gray);
-cursor:pointer;display:flex;align-items:center;gap:5px;
-transition:color .25s;user-select:none;
+.nav-dd { position: relative; cursor: pointer; }
+.nav-dd-label {
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(–gray);
+display: flex;
+align-items: center;
+gap: 4px;
+transition: color 0.2s;
+user-select: none;
 }
-.nav-dropdown-trigger:hover{color:var(–white)}
-.nav-dropdown-trigger::after{
-content:‘▾’;font-size:9px;color:var(–gold);
-transition:transform .2s;display:inline-block;
+.nav-dd-label::after {
+content: ‘▾’;
+font-size: 9px;
+color: var(–gold);
+transition: transform 0.2s;
 }
-.nav-dropdown:hover .nav-dropdown-trigger::after{transform:rotate(180deg)}
-.nav-drop{
-position:absolute;top:calc(100% + 14px);left:50%;
-transform:translateX(-50%);
-background:var(–dark2);
-border:1px solid var(–border);
-min-width:210px;padding:8px 0;
-opacity:0;visibility:hidden;
-transition:opacity .2s,visibility .2s;
-box-shadow:0 20px 60px rgba(0,0,0,.6);
-z-index:600;
-}
-.nav-dropdown:hover .nav-drop{opacity:1;visibility:visible}
-.nav-drop a,.nav-drop .dim{
-display:flex;align-items:center;gap:10px;
-padding:10px 18px;
-font-size:11px;font-weight:500;letter-spacing:1.5px;
-text-transform:uppercase;color:var(–gray);
-transition:all .2s;
-}
-.nav-drop a:hover{color:var(–white);padding-left:22px;background:rgba(201,168,76,0.05)}
-.nav-drop .dim{opacity:.3;cursor:default;pointer-events:none}
-.nav-drop-line{height:1px;background:var(–border2);margin:5px 0}
+.nav-dd:hover .nav-dd-label { color: var(–white); }
+.nav-dd:hover .nav-dd-label::after { transform: rotate(180deg); }
 
-.nav-right{display:flex;align-items:center;gap:16px}
-.nav-cta{
-background:var(–gold);color:var(–dark);
-padding:10px 22px;
-font-size:11px;font-weight:700;letter-spacing:1.5px;
-text-transform:uppercase;transition:all .25s;
-white-space:nowrap;
+.nav-dd-menu {
+position: absolute;
+top: calc(100% + 12px);
+left: 50%;
+transform: translateX(-50%);
+background: var(–dark2);
+border: 1px solid var(–border);
+min-width: 200px;
+padding: 6px 0;
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.2s, visibility 0.2s;
+box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+z-index: 999;
 }
-.nav-cta:hover{background:var(–gold2);transform:translateY(-1px)}
-.hamburger{
-display:none;flex-direction:column;
-gap:5px;cursor:pointer;padding:4px;
-flex-shrink:0;
+.nav-dd:hover .nav-dd-menu { opacity: 1; visibility: visible; }
+.nav-dd-menu a,
+.nav-dd-menu .dim {
+display: flex;
+align-items: center;
+gap: 9px;
+padding: 10px 16px;
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+color: var(–gray);
+transition: all 0.15s;
 }
-.hamburger span{width:22px;height:2px;background:var(–white);display:block;transition:all .3s}
+.nav-dd-menu a:hover { color: var(–white); padding-left: 20px; background: rgba(201,168,76,0.04); }
+.nav-dd-menu .dim { opacity: 0.3; cursor: default; }
+.nav-dd-divider { height: 1px; background: var(–border2); margin: 4px 0; }
 
-/* ═══════════════════════════════════
+/* Nav right */
+.nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.nav-cta {
+background: var(–gold);
+color: var(–dark);
+padding: 10px 20px;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+transition: background 0.2s, transform 0.2s;
+white-space: nowrap;
+}
+.nav-cta:hover { background: var(–gold2); transform: translateY(-1px); }
+
+/* Hamburger — mobile only */
+.hamburger {
+display: none;
+flex-direction: column;
+gap: 5px;
+cursor: pointer;
+padding: 4px;
+}
+.hamburger span {
+width: 22px;
+height: 2px;
+background: var(–white);
+display: block;
+transition: all 0.3s;
+}
+
+/* Mobile menu */
+.mobile-menu {
+display: none;
+position: fixed;
+top: var(–nav-h);
+left: 0; right: 0;
+background: rgba(13,13,20,0.99);
+border-bottom: 1px solid var(–border);
+padding: 24px 5%;
+z-index: 800;
+flex-direction: column;
+gap: 0;
+backdrop-filter: blur(16px);
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+display: block;
+padding: 14px 0;
+font-size: 13px;
+font-weight: 500;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(–gray);
+border-bottom: 1px solid var(–border2);
+transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(–white); }
+.mobile-menu a:last-child { border-bottom: none; }
+
+/* =============================================
 HERO
-═══════════════════════════════════ */
-.hero{
-min-height:100vh;
-display:flex;align-items:center;
-padding:100px 5% 80px;
-position:relative;overflow:hidden;
+============================================= */
+.hero {
+min-height: 100vh;
+padding: calc(var(–nav-h) + 60px) 5% 80px;
+display: flex;
+align-items: center;
+position: relative;
+overflow: hidden;
 }
 
-/* Grid BG */
-.hero-grid{
-position:absolute;inset:0;pointer-events:none;
+/* Grid background */
+.hero::before {
+content: ‘’;
+position: absolute;
+inset: 0;
 background-image:
-linear-gradient(rgba(201,168,76,0.04) 1px,transparent 1px),
-linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px);
-background-size:64px 64px;
-mask-image:radial-gradient(ellipse at center,black 0%,transparent 70%);
-}
-.hero-glow{
-position:absolute;pointer-events:none;
-width:700px;height:700px;border-radius:50%;
-background:radial-gradient(circle,rgba(201,168,76,0.06) 0%,transparent 65%);
-top:50%;left:50%;transform:translate(-50%,-50%);
+linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+background-size: 64px 64px;
+mask-image: radial-gradient(ellipse at 40% 50%, black 0%, transparent 70%);
+pointer-events: none;
 }
 
-.hero-inner{
-position:relative;z-index:2;
-width:100%;display:flex;
-align-items:center;justify-content:space-between;
-gap:48px;
+/* Glow */
+.hero::after {
+content: ‘’;
+position: absolute;
+width: 600px; height: 600px;
+border-radius: 50%;
+background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 65%);
+top: 50%; left: 35%;
+transform: translate(-50%, -50%);
+pointer-events: none;
 }
-.hero-content{flex:1;max-width:580px}
+
+.hero-inner {
+position: relative;
+z-index: 2;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 60px;
+}
+
+.hero-left { flex: 1; max-width: 560px; }
 
 /* Badge */
-.hero-badge{
-display:inline-flex;align-items:center;gap:8px;
-background:rgba(201,168,76,0.08);
-border:1px solid rgba(201,168,76,0.25);
-padding:7px 18px;margin-bottom:32px;
-font-size:11px;font-weight:600;letter-spacing:2.5px;
-text-transform:uppercase;color:var(–gold);
+.badge {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+background: rgba(201,168,76,0.08);
+border: 1px solid rgba(201,168,76,0.25);
+padding: 7px 16px;
+margin-bottom: 32px;
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(–gold);
 }
-.badge-dot{
-width:6px;height:6px;border-radius:50%;
-background:var(–gold);
-animation:pulse 2s infinite;
+.badge-dot {
+width: 6px; height: 6px;
+background: var(–gold);
+border-radius: 50%;
+animation: blink 2s ease-in-out infinite;
 }
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-/* Title */
-.hero-title{
-font-family:‘Bebas Neue’,Impact,sans-serif;
-font-size:clamp(64px,9vw,130px);
-line-height:.9;letter-spacing:2px;
-margin-bottom:28px;
+/* Hero title */
+.hero-title {
+font-family: ‘Bebas Neue’, ‘Arial Narrow’, sans-serif;
+font-size: clamp(62px, 9vw, 120px);
+line-height: 0.92;
+letter-spacing: 2px;
+margin-bottom: 28px;
 }
-.hero-title .l1{color:var(–white);display:block}
-.hero-title .l2{color:var(–gold);display:block}
-.hero-title .l3{
-color:transparent;display:block;
--webkit-text-stroke:1px rgba(255,255,255,0.18);
+.hero-title .t1 { color: var(–white); display: block; }
+.hero-title .t2 { color: var(–gold); display: block; }
+.hero-title .t3 {
+color: transparent;
+display: block;
+-webkit-text-stroke: 1px rgba(245,240,232,0.15);
 }
 
-.hero-sub{
-font-size:16px;font-weight:300;color:var(–gray);
-line-height:1.8;max-width:460px;margin-bottom:44px;
+.hero-desc {
+font-size: 16px;
+font-weight: 300;
+color: var(–gray);
+line-height: 1.85;
+max-width: 460px;
+margin-bottom: 44px;
 }
-.hero-sub strong{color:var(–white);font-weight:500}
+.hero-desc strong { color: var(–white); font-weight: 500; }
 
-.hero-btns{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-.btn-gold{
-background:var(–gold);color:var(–dark);
-padding:16px 36px;font-size:11px;font-weight:700;
-letter-spacing:2px;text-transform:uppercase;
-display:inline-flex;align-items:center;gap:10px;
-transition:all .3s;flex-shrink:0;
+.hero-btns {
+display: flex;
+gap: 20px;
+align-items: center;
+flex-wrap: wrap;
 }
-.btn-gold:hover{background:var(–gold2);transform:translateY(-2px);box-shadow:0 16px 40px rgba(201,168,76,0.3)}
-.btn-ghost{
-color:var(–white);font-size:11px;font-weight:500;
-letter-spacing:2px;text-transform:uppercase;
-display:inline-flex;align-items:center;gap:8px;
-padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.2);
-transition:all .3s;
-}
-.btn-ghost:hover{color:var(–gold);border-color:var(–gold);gap:14px}
 
-/* ── PHONE MOCKUP ── */
-.hero-phone{
-position:relative;flex-shrink:0;
-animation:floatPhone 6s ease-in-out infinite;
+.btn-primary {
+background: var(–gold);
+color: var(–dark);
+padding: 15px 34px;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 2px;
+text-transform: uppercase;
+display: inline-flex;
+align-items: center;
+gap: 9px;
+transition: all 0.25s;
+flex-shrink: 0;
 }
-@keyframes floatPhone{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
-.phone-device{
-width:280px;
-background:var(–dark2);
-border:1px solid rgba(201,168,76,0.2);
-border-radius:44px;padding:22px;
-box-shadow:0 48px 100px rgba(0,0,0,.7),inset 0 1px 0 rgba(201,168,76,0.12);
+.btn-primary:hover { background: var(–gold2); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(201,168,76,0.28); }
+
+.btn-secondary {
+color: var(–white);
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 2px;
+text-transform: uppercase;
+display: inline-flex;
+align-items: center;
+gap: 7px;
+padding-bottom: 3px;
+border-bottom: 1px solid rgba(255,255,255,0.2);
+transition: all 0.25s;
 }
-.phone-notch{width:72px;height:5px;background:var(–dark3);border-radius:3px;margin:0 auto 18px}
-.phone-screen{background:var(–dark3);border-radius:28px;padding:18px;min-height:420px}
-.phone-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(201,168,76,0.08)}
-.phone-logo-badge{
-width:34px;height:34px;background:var(–gold);border-radius:10px;
-display:flex;align-items:center;justify-content:center;
-font-family:‘Bebas Neue’,sans-serif;font-size:17px;color:var(–dark);flex-shrink:0;
+.btn-secondary:hover { color: var(–gold); border-color: var(–gold); gap: 12px; }
+
+/* Phone mockup */
+.hero-right {
+flex-shrink: 0;
+position: relative;
+animation: float 6s ease-in-out infinite;
 }
-.phone-biz{font-size:13px;font-weight:600;color:var(–white);line-height:1.2}
-.phone-biz-sub{font-size:10px;color:var(–gold)}
-.phone-book-btn{
-width:100%;background:var(–gold);color:var(–dark);
-border:none;padding:13px;border-radius:12px;
-font-family:‘Bebas Neue’,sans-serif;font-size:15px;
-letter-spacing:1px;cursor:pointer;margin-bottom:14px;
-transition:background .2s;
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+
+.phone {
+width: 264px;
+background: var(–dark2);
+border: 1px solid rgba(201,168,76,0.2);
+border-radius: 44px;
+padding: 20px;
+box-shadow: 0 48px 100px rgba(0,0,0,0.65), inset 0 1px 0 rgba(201,168,76,0.1);
 }
-.phone-book-btn:hover{background:var(–gold2)}
-.phone-svcs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.phone-svc{
-background:rgba(201,168,76,0.07);
-border:1px solid rgba(201,168,76,0.12);
-border-radius:10px;padding:10px;
-font-size:11px;color:var(–white);font-weight:500;
+.phone-notch {
+width: 68px; height: 5px;
+background: var(–dark3);
+border-radius: 3px;
+margin: 0 auto 16px;
 }
-.phone-svc-price{color:var(–gold);font-size:13px;font-weight:700;display:block;margin-top:2px}
+.phone-screen {
+background: var(–dark3);
+border-radius: 28px;
+padding: 16px;
+}
+.phone-header {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 14px;
+padding-bottom: 12px;
+border-bottom: 1px solid rgba(201,168,76,0.08);
+}
+.phone-icon {
+width: 32px; height: 32px;
+background: var(–gold);
+border-radius: 9px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 16px;
+color: var(–dark);
+flex-shrink: 0;
+}
+.phone-biz { font-size: 12px; font-weight: 600; color: var(–white); }
+.phone-stars { font-size: 10px; color: var(–gold); margin-top: 1px; }
+.phone-btn {
+width: 100%;
+background: var(–gold);
+color: var(–dark);
+border: none;
+border-radius: 11px;
+padding: 12px;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 14px;
+letter-spacing: 1px;
+cursor: pointer;
+margin-bottom: 12px;
+}
+.phone-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 7px;
+}
+.phone-svc {
+background: rgba(201,168,76,0.07);
+border: 1px solid rgba(201,168,76,0.12);
+border-radius: 9px;
+padding: 9px;
+font-size: 11px;
+color: var(–white);
+font-weight: 500;
+}
+.phone-svc-price {
+color: var(–gold);
+font-size: 12px;
+font-weight: 700;
+display: block;
+margin-top: 2px;
+}
 
 /* Notification bubbles */
-.notif{
-position:absolute;
-background:var(–dark2);
-border:1px solid rgba(201,168,76,0.25);
-border-radius:14px;padding:10px 16px;
-display:flex;align-items:center;gap:10px;
-font-size:12px;color:var(–white);
-white-space:nowrap;
-box-shadow:0 12px 40px rgba(0,0,0,.5);
-opacity:0;
+.notif {
+position: absolute;
+background: var(–dark2);
+border: 1px solid rgba(201,168,76,0.25);
+border-radius: 12px;
+padding: 9px 14px;
+display: flex;
+align-items: center;
+gap: 9px;
+font-size: 11px;
+color: var(–white);
+white-space: nowrap;
+box-shadow: 0 10px 36px rgba(0,0,0,0.5);
+opacity: 0;
 }
-.notif-1{top:15%;right:-40px;animation:notifIn .5s ease 1.2s forwards,floatNotif 4s ease-in-out 1.7s infinite}
-.notif-2{top:42%;left:-60px;animation:notifIn .5s ease 1.8s forwards,floatNotif2 4s ease-in-out 2.3s infinite}
-.notif-3{bottom:22%;right:-30px;animation:notifIn .5s ease 2.4s forwards,floatNotif 4s ease-in-out 2.9s infinite}
-@keyframes notifIn{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:translateX(0)}}
-@keyframes floatNotif{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-@keyframes floatNotif2{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.notif-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
-.ni-green{background:rgba(26,122,60,.25)}
-.ni-gold{background:rgba(201,168,76,.2)}
-.ni-orange{background:rgba(232,104,26,.2)}
-.notif-text{line-height:1.3}
-.notif-label{font-size:9px;color:var(–gray);display:block;letter-spacing:.5px}
+.n1 { top: 10%; right: -36px; animation: nIn 0.4s ease 1.2s forwards, nFloat 4s ease-in-out 1.7s infinite; }
+.n2 { top: 44%; left: -52px; animation: nIn 0.4s ease 1.8s forwards, nFloat2 4s ease-in-out 2.3s infinite; }
+.n3 { bottom: 16%; right: -24px; animation: nIn 0.4s ease 2.4s forwards, nFloat 4s ease-in-out 2.9s infinite; }
+@keyframes nIn { from{opacity:0;transform:translateX(10px)} to{opacity:1;transform:translateX(0)} }
+@keyframes nFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+@keyframes nFloat2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+.n-icon {
+width: 26px; height: 26px;
+border-radius: 7px;
+display: flex; align-items: center; justify-content: center;
+font-size: 12px; flex-shrink: 0;
+}
+.ni-g { background: rgba(26,122,60,0.25); }
+.ni-a { background: rgba(201,168,76,0.2); }
+.ni-o { background: rgba(232,104,26,0.2); }
+.n-lbl { font-size: 9px; color: var(–gray); display: block; line-height: 1; margin-bottom: 2px; }
 
-/* ═══════════════════════════════════
+/* =============================================
 TICKER
-═══════════════════════════════════ */
-.ticker{background:var(–gold);padding:13px 0;overflow:hidden;white-space:nowrap}
-.ticker-track{display:inline-flex;animation:tickAnim 28s linear infinite}
-@keyframes tickAnim{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.t-item{
-font-family:‘Bebas Neue’,Impact,sans-serif;
-font-size:16px;letter-spacing:3px;color:var(–dark);
-padding:0 32px;opacity:.85;
+============================================= */
+.ticker {
+background: var(–gold);
+padding: 13px 0;
+overflow: hidden;
+white-space: nowrap;
 }
-.t-sep{opacity:.35}
+.ticker-inner {
+display: inline-flex;
+animation: tick 30s linear infinite;
+}
+@keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.ti {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 15px;
+letter-spacing: 3.5px;
+color: var(–dark);
+padding: 0 28px;
+opacity: 0.88;
+}
+.ts { opacity: 0.35; }
 
-/* ═══════════════════════════════════
-STATS BAR
-═══════════════════════════════════ */
-.stats{
-background:var(–dark2);
-border-bottom:1px solid var(–border2);
-padding:44px 5%;
-display:grid;grid-template-columns:repeat(4,1fr);
+/* =============================================
+STATS
+============================================= */
+.stats {
+background: var(–dark2);
+border-bottom: 1px solid var(–border2);
+padding: 48px 5%;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
 }
-.stat{text-align:center;position:relative}
-.stat+.stat::before{
-content:’’;position:absolute;left:0;top:50%;transform:translateY(-50%);
-height:44px;width:1px;background:var(–border2);
+.stat { text-align: center; position: relative; }
+.stat + .stat::before {
+content: ‘’;
+position: absolute;
+left: 0; top: 50%;
+transform: translateY(-50%);
+height: 40px; width: 1px;
+background: var(–border2);
 }
-.stat-num{
-font-family:‘Bebas Neue’,Impact,sans-serif;
-font-size:56px;color:var(–gold);
-line-height:1;letter-spacing:2px;
+.stat-num {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 58px;
+color: var(–gold);
+line-height: 1;
+letter-spacing: 2px;
 }
-.stat-lbl{
-font-size:10px;font-weight:500;letter-spacing:2px;
-text-transform:uppercase;color:var(–gray);margin-top:6px;
+.stat-lbl {
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 2.5px;
+text-transform: uppercase;
+color: var(–gray);
+margin-top: 6px;
 }
 
-/* ═══════════════════════════════════
+/* =============================================
 SECTIONS
-═══════════════════════════════════ */
-.sec{padding:100px 5%}
-.sec-dark{background:var(–dark2)}
+============================================= */
+.sec { padding: 96px 5%; }
+.sec-alt { background: var(–dark2); }
 
-.sec-eyebrow{
-display:flex;align-items:center;gap:12px;margin-bottom:18px;
+.eyebrow {
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 16px;
 }
-.sec-eyebrow-line{width:30px;height:1px;background:var(–gold);flex-shrink:0}
-.sec-eyebrow-text{
-font-size:10px;font-weight:600;letter-spacing:3.5px;
-text-transform:uppercase;color:var(–gold);
-}
-.sec-title{
-font-family:‘Bebas Neue’,Impact,sans-serif;
-font-size:clamp(44px,6vw,80px);
-line-height:.95;letter-spacing:2px;
-margin-bottom:20px;
-}
-.sec-title span{color:var(–gold)}
-.sec-sub{
-font-size:16px;font-weight:300;color:var(–gray);
-max-width:500px;line-height:1.8;
+.eyebrow-line { width: 28px; height: 1px; background: var(–gold); flex-shrink: 0; }
+.eyebrow-text {
+font-size: 10px;
+font-weight: 600;
+letter-spacing: 4px;
+text-transform: uppercase;
+color: var(–gold);
 }
 
-/* ═══════════════════════════════════
+.sec-title {
+font-family: ‘Bebas Neue’, ‘Arial Narrow’, sans-serif;
+font-size: clamp(40px, 5.5vw, 72px);
+line-height: 0.95;
+letter-spacing: 2px;
+margin-bottom: 18px;
+}
+.sec-title span { color: var(–gold); }
+
+.sec-sub {
+font-size: 15px;
+font-weight: 300;
+color: var(–gray);
+line-height: 1.85;
+max-width: 500px;
+}
+
+/* =============================================
 HOW IT WORKS
-═══════════════════════════════════ */
-.steps{
-display:grid;grid-template-columns:repeat(4,1fr);
-gap:1px;background:var(–border2);
-border:1px solid var(–border2);margin-top:64px;
+============================================= */
+.steps {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 1px;
+background: var(–border2);
+border: 1px solid var(–border2);
+margin-top: 60px;
 }
-.step{
-background:var(–dark);padding:44px 32px;
-position:relative;transition:background .3s;
+.step {
+background: var(–dark);
+padding: 44px 32px;
+position: relative;
+transition: background 0.3s;
 }
-.step:hover{background:var(–dark2)}
-.step-num{
-font-family:‘Bebas Neue’,Impact,sans-serif;
-font-size:90px;color:rgba(201,168,76,0.06);
-line-height:1;position:absolute;top:16px;right:20px;
-letter-spacing:2px;transition:color .3s;
+.step:hover { background: var(–dark2); }
+.step-num {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 88px;
+color: rgba(201,168,76,0.06);
+line-height: 1;
+position: absolute;
+top: 16px; right: 20px;
+letter-spacing: 2px;
+transition: color 0.3s;
 }
-.step:hover .step-num{color:rgba(201,168,76,0.12)}
-.step-icon{font-size:32px;margin-bottom:20px;display:block}
-.step-title{
-font-family:‘Syne’,‘Bebas Neue’,sans-serif;
-font-size:18px;font-weight:700;color:var(–white);margin-bottom:10px;
+.step:hover .step-num { color: rgba(201,168,76,0.11); }
+.step-icon { font-size: 30px; margin-bottom: 18px; display: block; }
+.step-title {
+font-family: ‘Syne’, ‘Bebas Neue’, sans-serif;
+font-size: 17px;
+font-weight: 700;
+color: var(–white);
+margin-bottom: 10px;
 }
-.step-desc{font-size:13px;color:var(–gray);line-height:1.75}
+.step-desc { font-size: 13px; color: var(–gray); line-height: 1.75; }
 
-/* ═══════════════════════════════════
-PACKAGES — BULLETPROOF LAYOUT
-═══════════════════════════════════ */
-.pkg-header{
-display:flex;justify-content:space-between;
-align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:20px;
-}
-.pkg-note{
-font-size:13px;color:var(–gray);
-max-width:280px;line-height:1.7;text-align:right;
-}
-
-/* The grid — NO absolute positioning anywhere */
-.pkg-grid{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:0;
-border:1px solid var(–border2);
-overflow:hidden;
+/* =============================================
+PACKAGES — COMPLETELY REBUILT
+Uses table-layout for perfect equal columns
+============================================= */
+.pkg-wrap {
+margin-top: 56px;
+width: 100%;
+overflow: hidden;
+border: 1px solid var(–border2);
 }
 
-/* Dividers between cards */
-.pkg-card{
-background:var(–dark);
-padding:36px 24px;
-display:flex;flex-direction:column;
-border-right:1px solid var(–border2);
-transition:background .3s;
-position:relative;
+/* The actual grid — using CSS table for bulletproof equal columns */
+.pkg-row {
+display: table;
+width: 100%;
+table-layout: fixed;
+border-collapse: collapse;
 }
-.pkg-card:last-child{border-right:none}
-.pkg-card:hover{background:var(–dark2)}
+
+.pkg-card {
+display: table-cell;
+width: 20%;
+vertical-align: top;
+background: var(–dark);
+padding: 32px 22px;
+border-right: 1px solid var(–border2);
+transition: background 0.3s;
+}
+.pkg-card:last-child { border-right: none; }
+.pkg-card:hover { background: var(–dark3); }
 
 /* Featured card */
-.pkg-card.featured{
-background:var(–dark2);
-position:relative;
-}
-.pkg-card.featured::before{
-content:’’;
-position:absolute;top:0;left:0;right:0;height:2px;
-background:var(–gold);
+.pkg-card.featured {
+background: var(–dark2);
+border-top: 2px solid var(–gold);
 }
 
-/* Popular tag — INLINE not absolute */
-.pkg-popular{
-display:inline-block;
-background:var(–gold);color:var(–dark);
-font-size:9px;font-weight:800;letter-spacing:2px;
-text-transform:uppercase;padding:5px 12px;
-margin-bottom:16px;align-self:flex-start;
+/* Popular badge */
+.pkg-tag {
+display: inline-block;
+background: var(–gold);
+color: var(–dark);
+font-size: 9px;
+font-weight: 800;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+padding: 4px 10px;
+margin-bottom: 14px;
 }
 
-.pkg-emoji{font-size:26px;margin-bottom:14px;display:block}
-.pkg-name{
-font-family:‘Syne’,‘Bebas Neue’,sans-serif;
-font-size:20px;font-weight:700;color:var(–white);
-letter-spacing:.5px;margin-bottom:4px;
+.pkg-emoji { font-size: 24px; margin-bottom: 12px; display: block; }
+.pkg-name {
+font-family: ‘Syne’, sans-serif;
+font-size: 18px;
+font-weight: 700;
+color: var(–white);
+margin-bottom: 4px;
+letter-spacing: 0.3px;
 }
-.pkg-setup{
-font-family:‘Bebas Neue’,Impact,sans-serif;
-font-size:44px;color:var(–gold);
-line-height:1;letter-spacing:1px;margin-bottom:4px;
+.pkg-price {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 42px;
+color: var(–gold);
+line-height: 1;
+letter-spacing: 1px;
+margin-bottom: 4px;
 }
-.pkg-monthly{font-size:12px;color:var(–gray);margin-bottom:24px}
-.pkg-divider{height:1px;background:var(–border2);margin-bottom:20px}
-.pkg-features{
-list-style:none;flex:1;
-display:flex;flex-direction:column;
-gap:8px;margin-bottom:24px;
+.pkg-mo {
+font-size: 11px;
+color: var(–gray);
+margin-bottom: 20px;
 }
-.pkg-features li{
-font-size:12px;color:var(–gray);
-display:flex;align-items:flex-start;gap:8px;line-height:1.5;
+.pkg-line {
+height: 1px;
+background: var(–border2);
+margin-bottom: 18px;
 }
-.pkg-features li::before{
-content:‘✓’;color:var(–gold);
-font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px;
+.pkg-feats {
+list-style: none;
+margin-bottom: 24px;
 }
-.pkg-btn{
-display:block;text-align:center;
-padding:13px;margin-top:auto;
-font-size:10px;font-weight:700;letter-spacing:2px;
-text-transform:uppercase;
-border:1px solid var(–border);color:var(–gold);
-transition:all .3s;
+.pkg-feats li {
+font-size: 12px;
+color: var(–gray);
+padding: 6px 0;
+border-bottom: 1px solid rgba(255,255,255,0.03);
+display: flex;
+align-items: flex-start;
+gap: 7px;
+line-height: 1.5;
 }
-.pkg-btn:hover,.pkg-card.featured .pkg-btn{
-background:var(–gold);color:var(–dark);border-color:var(–gold);
+.pkg-feats li::before {
+content: ‘✓’;
+color: var(–gold);
+font-size: 10px;
+font-weight: 700;
+flex-shrink: 0;
+margin-top: 2px;
 }
-.pkg-card.featured .pkg-btn:hover{background:var(–gold2)}
+.pkg-btn {
+display: block;
+text-align: center;
+padding: 12px;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 2px;
+text-transform: uppercase;
+border: 1px solid var(–border);
+color: var(–gold);
+transition: all 0.25s;
+margin-top: 16px;
+}
+.pkg-btn:hover { background: var(–gold); color: var(–dark); border-color: var(–gold); }
+.pkg-card.featured .pkg-btn { background: var(–gold); color: var(–dark); border-color: var(–gold); }
+.pkg-card.featured .pkg-btn:hover { background: var(–gold2); }
 
-/* ═══════════════════════════════════
+/* =============================================
 AUTOMATIONS
-═══════════════════════════════════ */
-.auto-grid{
-display:grid;grid-template-columns:1fr 1fr;
-gap:80px;align-items:center;margin-top:64px;
+============================================= */
+.auto-wrap {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 72px;
+align-items: center;
+margin-top: 60px;
 }
-.auto-list{display:flex;flex-direction:column;gap:2px}
-.auto-item{
-display:flex;align-items:flex-start;gap:18px;
-padding:22px 24px;background:var(–dark2);
-border:1px solid transparent;
-border-left:3px solid transparent;
-cursor:pointer;transition:all .25s;
+.auto-list { display: flex; flex-direction: column; gap: 2px; }
+.auto-item {
+display: flex;
+align-items: flex-start;
+gap: 16px;
+padding: 20px 22px;
+background: var(–dark2);
+border: 1px solid transparent;
+border-left: 3px solid transparent;
+cursor: pointer;
+transition: all 0.2s;
 }
-.auto-item:hover,.auto-item.active{
-background:var(–dark3);border-color:var(–border);
+.auto-item:hover,
+.auto-item.active { background: var(–dark3); border-color: var(–border); }
+.auto-item.active { border-left-color: var(–gold); }
+.auto-icon {
+width: 40px; height: 40px;
+background: rgba(201,168,76,0.08);
+border-radius: 10px;
+display: flex; align-items: center; justify-content: center;
+font-size: 17px;
+flex-shrink: 0;
 }
-.auto-item.active{border-left-color:var(–gold)}
-.auto-icon{
-width:42px;height:42px;
-background:rgba(201,168,76,0.08);
-border-radius:10px;display:flex;align-items:center;
-justify-content:center;font-size:18px;flex-shrink:0;
+.auto-title {
+font-family: ‘Syne’, sans-serif;
+font-size: 15px;
+font-weight: 700;
+color: var(–white);
+margin-bottom: 3px;
 }
-.auto-title{
-font-family:‘Syne’,sans-serif;
-font-size:15px;font-weight:700;color:var(–white);margin-bottom:4px;
-}
-.auto-desc{font-size:12px;color:var(–gray);line-height:1.6}
-.auto-badge{
-margin-left:auto;flex-shrink:0;align-self:center;
-font-size:9px;font-weight:700;letter-spacing:1.5px;
-text-transform:uppercase;
-background:rgba(26,122,60,.15);color:#4ade80;
-padding:4px 10px;border-radius:20px;
+.auto-desc { font-size: 12px; color: var(–gray); line-height: 1.6; }
+.auto-live {
+margin-left: auto;
+flex-shrink: 0;
+font-size: 9px;
+font-weight: 700;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+background: rgba(26,122,60,0.15);
+color: #4ade80;
+padding: 4px 9px;
+border-radius: 20px;
+align-self: center;
 }
 
-/* SMS Demo */
-.sms-demo{
-background:var(–dark2);
-border:1px solid var(–border);
-border-radius:36px;padding:20px;
-max-width:300px;margin:0 auto;
-box-shadow:0 40px 100px rgba(0,0,0,.5);
-animation:floatPhone 5s ease-in-out infinite;
+/* SMS phone */
+.sms-phone {
+background: var(–dark2);
+border: 1px solid var(–border);
+border-radius: 36px;
+padding: 18px;
+max-width: 290px;
+margin: 0 auto;
+box-shadow: 0 40px 90px rgba(0,0,0,0.5);
+animation: float 5s ease-in-out infinite;
 }
-.sms-bar{width:64px;height:5px;background:var(–dark3);border-radius:3px;margin:0 auto 18px}
-.sms-screen{background:var(–dark3);border-radius:28px;padding:18px;min-height:400px}
-.sms-head{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(201,168,76,0.08)}
-.sms-av{width:34px;height:34px;background:var(–gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:‘Bebas Neue’,sans-serif;font-size:16px;color:var(–dark);flex-shrink:0}
-.sms-name{font-size:12px;font-weight:600;color:var(–white)}
-.sms-sub{font-size:10px;color:var(–gray);margin-top:1px}
-.sms-msg{margin-bottom:10px}
-.sms-bubble{
-padding:10px 13px;border-radius:16px;
-font-size:11px;line-height:1.55;
-display:inline-block;max-width:88%;
+.sms-bar { width: 60px; height: 4px; background: var(–dark3); border-radius: 2px; margin: 0 auto 16px; }
+.sms-screen { background: var(–dark3); border-radius: 24px; padding: 16px; }
+.sms-header {
+display: flex; align-items: center; gap: 9px;
+margin-bottom: 14px; padding-bottom: 12px;
+border-bottom: 1px solid rgba(201,168,76,0.07);
 }
-.sms-in .sms-bubble{background:rgba(255,255,255,.07);color:var(–white);border-bottom-left-radius:4px}
-.sms-out{text-align:right}
-.sms-out .sms-bubble{background:var(–gold);color:var(–dark);border-bottom-right-radius:4px;font-weight:500}
-.sms-time{font-size:9px;color:var(–gray);margin-top:3px;padding:0 4px}
+.sms-av {
+width: 32px; height: 32px;
+background: var(–gold); border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+font-family: ‘Bebas Neue’, sans-serif; font-size: 15px; color: var(–dark);
+flex-shrink: 0;
+}
+.sms-name { font-size: 12px; font-weight: 600; color: var(–white); }
+.sms-sub { font-size: 10px; color: var(–gray); margin-top: 1px; }
+.msg { margin-bottom: 9px; }
+.bubble {
+padding: 9px 12px;
+border-radius: 14px;
+font-size: 11px;
+line-height: 1.55;
+display: inline-block;
+max-width: 90%;
+}
+.msg-in .bubble { background: rgba(255,255,255,0.07); color: var(–white); border-bottom-left-radius: 3px; }
+.msg-out { text-align: right; }
+.msg-out .bubble { background: var(–gold); color: var(–dark); border-bottom-right-radius: 3px; font-weight: 500; }
+.msg-time { font-size: 9px; color: var(–gray2); margin-top: 2px; padding: 0 3px; }
 
-/* ═══════════════════════════════════
+/* =============================================
 WHY US
-═══════════════════════════════════ */
-.why-grid{
-display:grid;grid-template-columns:repeat(3,1fr);
-gap:1px;background:var(–border2);
-border:1px solid var(–border2);margin-top:64px;
+============================================= */
+.why-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1px;
+background: var(–border2);
+border: 1px solid var(–border2);
+margin-top: 60px;
 }
-.why-card{
-background:var(–dark);padding:44px 36px;transition:background .3s;
+.why-card { background: var(–dark); padding: 44px 36px; transition: background 0.3s; }
+.why-card:hover { background: var(–dark2); }
+.why-icon { font-size: 34px; margin-bottom: 18px; display: block; }
+.why-title {
+font-family: ‘Syne’, sans-serif;
+font-size: 17px;
+font-weight: 700;
+color: var(–white);
+margin-bottom: 10px;
 }
-.why-card:hover{background:var(–dark2)}
-.why-icon{font-size:36px;margin-bottom:20px;display:block}
-.why-title{
-font-family:‘Syne’,sans-serif;
-font-size:18px;font-weight:700;color:var(–white);margin-bottom:10px;
-}
-.why-desc{font-size:14px;color:var(–gray);line-height:1.8}
+.why-desc { font-size: 13px; color: var(–gray); line-height: 1.8; }
 
-/* ═══════════════════════════════════
+/* =============================================
 GUARANTEE
-═══════════════════════════════════ */
-.guarantee{
-padding:100px 5%;text-align:center;
-position:relative;overflow:hidden;
+============================================= */
+.guarantee {
+padding: 96px 5%;
+text-align: center;
+position: relative;
+overflow: hidden;
 }
-.guarantee::before{
-content:’’;position:absolute;inset:0;
-background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(232,104,26,0.07) 0%,transparent 65%);
-pointer-events:none;
+.guarantee::before {
+content: ‘’;
+position: absolute; inset: 0;
+background: radial-gradient(ellipse 65% 65% at 50% 50%, rgba(232,104,26,0.07) 0%, transparent 65%);
+pointer-events: none;
 }
-.g-badge{
-width:160px;height:160px;border-radius:50%;
-border:1px solid rgba(232,104,26,0.3);
-display:flex;flex-direction:column;
-align-items:center;justify-content:center;
-margin:0 auto 44px;position:relative;z-index:1;
+.g-ring {
+width: 152px; height: 152px;
+border-radius: 50%;
+border: 1px solid rgba(232,104,26,0.3);
+display: flex; flex-direction: column;
+align-items: center; justify-content: center;
+margin: 0 auto 44px;
+position: relative; z-index: 1;
 }
-.g-badge::before{
-content:’’;position:absolute;inset:8px;
-border-radius:50%;border:1px solid rgba(232,104,26,0.12);
+.g-ring::before {
+content: ‘’;
+position: absolute; inset: 8px;
+border-radius: 50%;
+border: 1px solid rgba(232,104,26,0.12);
 }
-.g-days{
-font-family:‘Bebas Neue’,Impact,sans-serif;
-font-size:60px;color:var(–orange);
-line-height:1;letter-spacing:2px;
+.g-num {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 58px;
+color: var(–orange);
+line-height: 1;
+letter-spacing: 2px;
 }
-.g-word{font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(–white);margin-top:2px}
-.g-title{
-font-family:‘Bebas Neue’,Impact,sans-serif;
-font-size:clamp(48px,6vw,80px);
-letter-spacing:2px;margin-bottom:20px;
-position:relative;z-index:1;
+.g-word {
+font-size: 9px;
+font-weight: 600;
+letter-spacing: 2.5px;
+text-transform: uppercase;
+color: var(–white);
+margin-top: 2px;
 }
-.g-title span{color:var(–orange)}
-.g-desc{
-font-size:17px;font-weight:300;color:var(–gray);
-max-width:540px;margin:0 auto 48px;line-height:1.85;
-position:relative;z-index:1;
+.g-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(44px, 6vw, 76px);
+letter-spacing: 2px;
+line-height: 0.95;
+margin-bottom: 18px;
+position: relative; z-index: 1;
 }
-.btn-orange{
-background:var(–orange);color:var(–white);
-padding:16px 40px;font-size:11px;font-weight:700;
-letter-spacing:2px;text-transform:uppercase;
-display:inline-flex;align-items:center;gap:10px;
-transition:all .3s;position:relative;z-index:1;
+.g-title span { color: var(–orange); }
+.g-desc {
+font-size: 16px;
+font-weight: 300;
+color: var(–gray);
+max-width: 520px;
+margin: 0 auto 44px;
+line-height: 1.85;
+position: relative; z-index: 1;
 }
-.btn-orange:hover{background:#FF8A3D;transform:translateY(-2px);box-shadow:0 16px 40px rgba(232,104,26,0.3)}
+.btn-orange {
+background: var(–orange);
+color: var(–white);
+padding: 15px 36px;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 2px;
+text-transform: uppercase;
+display: inline-flex;
+align-items: center;
+gap: 9px;
+transition: all 0.25s;
+position: relative; z-index: 1;
+}
+.btn-orange:hover { background: #FF8A3D; transform: translateY(-2px); box-shadow: 0 12px 36px rgba(232,104,26,0.28); }
 
-/* ═══════════════════════════════════
+/* =============================================
 CTA
-═══════════════════════════════════ */
-.cta-sec{
-padding:100px 5%;text-align:center;
-background:var(–dark2);position:relative;overflow:hidden;
+============================================= */
+.cta {
+padding: 96px 5%;
+text-align: center;
+background: var(–dark2);
+position: relative;
+overflow: hidden;
 }
-.cta-sec::before{
-content:’’;position:absolute;inset:0;
+.cta::before {
+content: ‘’;
+position: absolute; inset: 0;
 background-image:
-linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),
-linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);
-background-size:64px 64px;
-pointer-events:none;
+linear-gradient(rgba(201,168,76,0.025) 1px, transparent 1px),
+linear-gradient(90deg, rgba(201,168,76,0.025) 1px, transparent 1px);
+background-size: 64px 64px;
+pointer-events: none;
 }
-.cta-eye{
-font-size:10px;font-weight:600;letter-spacing:4px;
-text-transform:uppercase;color:var(–gold);
-margin-bottom:20px;display:block;position:relative;z-index:1;
+.cta-eye {
+font-size: 10px;
+font-weight: 600;
+letter-spacing: 4px;
+text-transform: uppercase;
+color: var(–gold);
+display: block;
+margin-bottom: 20px;
+position: relative; z-index: 1;
 }
-.cta-title{
-font-family:‘Bebas Neue’,Impact,sans-serif;
-font-size:clamp(60px,9vw,120px);
-line-height:.9;letter-spacing:3px;
-margin-bottom:32px;position:relative;z-index:1;
+.cta-title {
+font-family: ‘Bebas Neue’, ‘Arial Narrow’, sans-serif;
+font-size: clamp(56px, 8.5vw, 112px);
+line-height: 0.92;
+letter-spacing: 3px;
+margin-bottom: 32px;
+position: relative; z-index: 1;
 }
-.cta-title .cl1{color:var(–white);display:block}
-.cta-title .cl2{color:var(–gold);display:block}
-.cta-title .cl3{color:transparent;display:block;-webkit-text-stroke:1px rgba(255,255,255,0.12)}
-.cta-sub{
-font-size:17px;font-weight:300;color:var(–gray);
-max-width:460px;margin:0 auto 48px;line-height:1.85;
-position:relative;z-index:1;
+.cta-title .c1 { color: var(–white); display: block; }
+.cta-title .c2 { color: var(–gold); display: block; }
+.cta-title .c3 { color: transparent; display: block; -webkit-text-stroke: 1px rgba(245,240,232,0.12); }
+.cta-sub {
+font-size: 16px;
+font-weight: 300;
+color: var(–gray);
+max-width: 440px;
+margin: 0 auto 48px;
+line-height: 1.85;
+position: relative; z-index: 1;
 }
-.cta-btns{
-display:flex;gap:20px;justify-content:center;
-align-items:center;flex-wrap:wrap;
-position:relative;z-index:1;
+.cta-btns {
+display: flex;
+gap: 20px;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+position: relative; z-index: 1;
 }
 
-/* ═══════════════════════════════════
+/* =============================================
 FOOTER
-═══════════════════════════════════ */
-footer{
-background:#09090F;
-border-top:1px solid var(–border2);
-padding:68px 5% 32px;
+============================================= */
+footer {
+background: #09090F;
+border-top: 1px solid var(–border2);
+padding: 64px 5% 28px;
 }
-.footer-grid{
-display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
-gap:44px;padding-bottom:52px;
-border-bottom:1px solid var(–border2);margin-bottom:28px;
+.footer-grid {
+display: grid;
+grid-template-columns: 2fr 1fr 1fr 1fr;
+gap: 40px;
+padding-bottom: 48px;
+border-bottom: 1px solid var(–border2);
+margin-bottom: 24px;
 }
-.footer-logo{
-font-family:‘Bebas Neue’,Impact,sans-serif;
-font-size:28px;letter-spacing:3px;
-color:var(–gold);display:block;margin-bottom:4px;
+.f-logo {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 26px;
+letter-spacing: 3px;
+color: var(–gold);
+display: block;
+margin-bottom: 12px;
 }
-.footer-logo span{color:var(–white)}
-.footer-tagline{font-size:13px;color:var(–gray);line-height:1.75;max-width:240px;margin-top:12px}
-.footer-social{display:flex;gap:10px;margin-top:18px}
-.fsoc{
-width:36px;height:36px;
-border:1px solid var(–border2);
-display:flex;align-items:center;justify-content:center;
-font-size:11px;font-weight:700;color:var(–gray);
-transition:all .25s;
+.f-logo span { color: var(–white); }
+.f-tag { font-size: 13px; color: var(–gray2); line-height: 1.75; max-width: 220px; }
+.f-social { display: flex; gap: 8px; margin-top: 16px; }
+.f-soc {
+width: 34px; height: 34px;
+border: 1px solid var(–border2);
+display: flex; align-items: center; justify-content: center;
+font-size: 10px; font-weight: 700; color: var(–gray2);
+transition: all 0.2s;
 }
-.fsoc:hover{border-color:var(–gold);color:var(–gold);background:rgba(201,168,76,0.06)}
-.footer-col-title{
-font-size:10px;font-weight:700;letter-spacing:3px;
-text-transform:uppercase;color:var(–gray);margin-bottom:18px;
+.f-soc:hover { border-color: var(–gold); color: var(–gold); background: rgba(201,168,76,0.05); }
+.f-col-title {
+font-size: 9px;
+font-weight: 700;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(–gray);
+margin-bottom: 16px;
 }
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-links a{font-size:13px;color:var(–gray);transition:color .25s}
-.footer-links a:hover{color:var(–white)}
-.footer-contact{font-size:13px;color:var(–gray);margin-bottom:8px;line-height:1.6}
-.footer-contact a{color:var(–gray);transition:color .25s}
-.footer-contact a:hover{color:var(–white)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.footer-copy{font-size:11px;color:var(–gray);letter-spacing:.5px}
-.footer-pow{font-size:11px;color:var(–gray)}
+.f-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.f-links a { font-size: 13px; color: var(–gray2); transition: color 0.2s; }
+.f-links a:hover { color: var(–white); }
+.f-contact { font-size: 13px; color: var(–gray2); margin-bottom: 7px; line-height: 1.6; }
+.f-contact a { color: var(–gray2); transition: color 0.2s; }
+.f-contact a:hover { color: var(–white); }
+.footer-bottom {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 10px;
+}
+.f-copy { font-size: 11px; color: var(–gray2); }
+.f-info { font-size: 11px; color: var(–gray2); }
 
-/* ═══════════════════════════════════
-REVEAL
-═══════════════════════════════════ */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.delay-1{transition-delay:.1s}
-.delay-2{transition-delay:.2s}
-.delay-3{transition-delay:.3s}
-.delay-4{transition-delay:.4s}
+/* =============================================
+RESPONSIVE — TABLET ≤1100px
+============================================= */
+@media (max-width: 1100px) {
+.nav-links { display: none; }
+.hero-right { display: none; }
+.hero-left { max-width: 100%; }
+.stats { grid-template-columns: repeat(2, 1fr); }
+.stat + .stat::before { display: none; }
+.stat { padding: 16px 0; }
+.steps { grid-template-columns: repeat(2, 1fr); }
+.auto-wrap { grid-template-columns: 1fr; gap: 44px; }
+.sms-phone { max-width: 320px; }
+.footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
 
-/* ═══════════════════════════════════
-RESPONSIVE — TABLET 1024px
-═══════════════════════════════════ */
-@media(max-width:1100px){
-.hero-inner{flex-direction:column;align-items:flex-start;gap:60px}
-.hero-phone{align-self:center;margin:0 auto}
-.notif-1,.notif-2,.notif-3{display:none}
-.pkg-grid{grid-template-columns:repeat(3,1fr) !important}
-.pkg-card:nth-child(4),.pkg-card:nth-child(5){border-top:1px solid var(–border2)}
-.pkg-card.featured{margin:0;z-index:0}
-.steps{grid-template-columns:repeat(2,1fr)}
-.auto-grid{grid-template-columns:1fr;gap:48px}
-.sms-demo{max-width:340px}
-.footer-grid{grid-template-columns:1fr 1fr;gap:32px}
-.stats{grid-template-columns:repeat(2,1fr)}
-.stat+.stat::before{display:none}
-.stat{padding:20px 0}
-.nav-links{display:none}
-.pkg-note{text-align:left;max-width:100%}
-.pkg-header{flex-direction:column;gap:12px}
+/* Packages on tablet — horizontal scroll */
+.pkg-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.pkg-row { min-width: 700px; }
 }
 
-/* ═══════════════════════════════════
-RESPONSIVE — MOBILE 640px
-═══════════════════════════════════ */
-@media(max-width:640px){
-nav{padding:0 5%}
-.nav-links{display:none}
-.nav-dropdown{display:none}
-.hamburger{display:flex}
-.hero{padding:90px 5% 60px}
-.hero-phone{width:100%;max-width:280px}
-.phone-device{width:100%}
-.sec{padding:72px 5%}
-.steps{grid-template-columns:1fr}
-.pkg-grid{grid-template-columns:1fr !important;border:none !important}
-.pkg-card{border:1px solid var(–border2) !important;border-top:none !important;margin:0 !important}
-.pkg-card:first-child{border-top:1px solid var(–border2) !important}
-.pkg-card.featured{border:1px solid var(–gold) !important;margin:0 !important}
-.why-grid{grid-template-columns:1fr}
-.footer-grid{grid-template-columns:1fr}
-.footer-bottom{flex-direction:column;text-align:center}
-.stats{grid-template-columns:repeat(2,1fr);padding:32px 5%}
-.stat-num{font-size:44px}
-.hero-btns{flex-direction:column;align-items:stretch}
-.btn-gold,.btn-ghost{justify-content:center}
-.cta-btns{flex-direction:column;align-items:stretch}
-.cta-btns a{justify-content:center}
-.hero-title{font-size:clamp(56px,14vw,80px)}
-.pkg-note{display:none}
+/* =============================================
+RESPONSIVE — MOBILE ≤640px
+============================================= */
+@media (max-width: 640px) {
+:root { –nav-h: 62px; }
+nav { padding: 0 4%; }
+.nav-links { display: none; }
+.hamburger { display: flex; }
+
+.hero { padding: calc(var(–nav-h) + 40px) 4% 56px; }
+.hero-inner { flex-direction: column; }
+.hero-title { font-size: clamp(56px, 15vw, 80px); }
+.hero-btns { flex-direction: column; align-items: stretch; }
+.btn-primary, .btn-secondary { justify-content: center; }
+
+.ticker .ti { font-size: 13px; padding: 0 20px; }
+
+.stats { padding: 32px 4%; grid-template-columns: repeat(2, 1fr); gap: 0; }
+.stat-num { font-size: 44px; }
+
+.sec { padding: 64px 4%; }
+.steps { grid-template-columns: 1fr; }
+.why-grid { grid-template-columns: 1fr; }
+.footer-grid { grid-template-columns: 1fr; gap: 32px; }
+.footer-bottom { flex-direction: column; text-align: center; }
+
+/* Packages on mobile — stack vertically */
+.pkg-wrap { overflow: hidden; border: none; }
+.pkg-row { display: block; min-width: unset; }
+.pkg-card {
+display: block;
+width: 100%;
+border-right: none;
+border: 1px solid var(–border2);
+margin-bottom: 2px;
 }
+.pkg-card.featured { border-color: var(–gold); }
+
+.cta-title { font-size: clamp(52px, 13vw, 80px); }
+.cta-btns { flex-direction: column; align-items: stretch; }
+.cta-btns a { justify-content: center; }
+
+.g-title { font-size: clamp(40px, 12vw, 64px); }
+}
+
 </style>
-
 </head>
 <body>
 
-<!-- ═══ NAV ═══ -->
+<!-- ======================== NAV ======================== -->
 
 <nav>
   <a href="#" class="nav-logo">MOJO<span>DIGITAL</span></a>
+
   <ul class="nav-links">
     <li><a href="#how">How It Works</a></li>
     <li><a href="#packages">Packages</a></li>
     <li><a href="#automations">Automations</a></li>
-    <li class="nav-dropdown">
-      <span class="nav-dropdown-trigger">Demo Sites</span>
-      <div class="nav-drop">
-        <a href="https://effulgent-brigadeiros-eafd70.netlify.app" target="_blank"><span>💈</span> Barbershop</a>
-        <div class="nav-drop-line"></div>
+    <li class="nav-dd">
+      <span class="nav-dd-label">Demo Sites</span>
+      <div class="nav-dd-menu">
+        <a href="https://cleancutsdemo.vercel.app" target="_blank"><span>💈</span> Barbershop</a>
+        <div class="nav-dd-divider"></div>
         <span class="dim"><span>🎨</span> Tattoo — Coming Soon</span>
         <span class="dim"><span>💆</span> Med Spa — Coming Soon</span>
         <span class="dim"><span>🐾</span> Pet Grooming — Soon</span>
@@ -757,47 +1131,63 @@ nav{padding:0 5%}
       </div>
     </li>
   </ul>
+
   <div class="nav-right">
     <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="nav-cta">Get Started</a>
-    <div class="hamburger" id="ham"><span></span><span></span><span></span></div>
+    <div class="hamburger" id="ham">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
 
-<!-- ═══ HERO ═══ -->
+<!-- Mobile Menu -->
+
+<div class="mobile-menu" id="mob">
+  <a href="#how" onclick="closeMob()">How It Works</a>
+  <a href="#packages" onclick="closeMob()">Packages</a>
+  <a href="#automations" onclick="closeMob()">Automations</a>
+  <a href="https://cleancutsdemo.vercel.app" target="_blank">💈 Barbershop Demo</a>
+  <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" style="color:var(--gold)">Get Started →</a>
+</div>
+
+<!-- ======================== HERO ======================== -->
 
 <section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
   <div class="hero-inner">
 
 ```
-<div class="hero-content reveal">
-  <div class="hero-badge"><span class="badge-dot"></span>Now Accepting New Clients</div>
+<div class="hero-left reveal">
+  <div class="badge">
+    <span class="badge-dot"></span>
+    Now Accepting New Clients
+  </div>
   <h1 class="hero-title">
-    <span class="l1">WEBSITES</span>
-    <span class="l2">THAT WORK</span>
-    <span class="l3">WHILE YOU SLEEP</span>
+    <span class="t1">WEBSITES</span>
+    <span class="t2">THAT WORK</span>
+    <span class="t3">WHILE YOU SLEEP</span>
   </h1>
-  <p class="hero-sub">We build <strong>complete automated systems</strong> for appointment-based businesses — booking, reminders, reviews, AI — all running 24/7 without you lifting a finger.</p>
+  <p class="hero-desc">
+    We build <strong>complete automated systems</strong> for appointment-based businesses — online booking, automated reminders, review collection, and AI. All running 24/7 without you lifting a finger.
+  </p>
   <div class="hero-btns">
-    <a href="#packages" class="btn-gold">See Our Packages <span>→</span></a>
-    <a href="https://effulgent-brigadeiros-eafd70.netlify.app" target="_blank" class="btn-ghost">View Live Demo →</a>
+    <a href="#packages" class="btn-primary">See Our Packages <span>→</span></a>
+    <a href="https://cleancutsdemo.vercel.app" target="_blank" class="btn-secondary">View Live Demo →</a>
   </div>
 </div>
 
-<div class="hero-phone reveal delay-3">
-  <div class="phone-device">
+<div class="hero-right reveal d3">
+  <div class="phone">
     <div class="phone-notch"></div>
     <div class="phone-screen">
       <div class="phone-header">
-        <div class="phone-logo-badge">M</div>
+        <div class="phone-icon">M</div>
         <div>
           <div class="phone-biz">Fresh Cuts Barber</div>
-          <div class="phone-biz-sub">⭐ 4.9 · 247 reviews</div>
+          <div class="phone-stars">⭐ 4.9 · 247 reviews</div>
         </div>
       </div>
-      <button class="phone-book-btn">✂ BOOK YOUR APPOINTMENT</button>
-      <div class="phone-svcs">
+      <button class="phone-btn">✂ BOOK YOUR APPOINTMENT</button>
+      <div class="phone-grid">
         <div class="phone-svc">Classic Cut<span class="phone-svc-price">$35</span></div>
         <div class="phone-svc">Fade + Lineup<span class="phone-svc-price">$45</span></div>
         <div class="phone-svc">Beard Trim<span class="phone-svc-price">$20</span></div>
@@ -805,18 +1195,17 @@ nav{padding:0 5%}
       </div>
     </div>
   </div>
-  <!-- Notification bubbles -->
-  <div class="notif notif-1">
-    <div class="notif-icon ni-green">✅</div>
-    <div class="notif-text"><span class="notif-label">New Booking</span>Marcus booked 3pm</div>
+  <div class="notif n1">
+    <div class="n-icon ni-g">✅</div>
+    <div><span class="n-lbl">New Booking</span>Marcus booked 3pm</div>
   </div>
-  <div class="notif notif-2">
-    <div class="notif-icon ni-gold">⭐</div>
-    <div class="notif-text"><span class="notif-label">New Review</span>"Best barber in town!"</div>
+  <div class="notif n2">
+    <div class="n-icon ni-a">⭐</div>
+    <div><span class="n-lbl">New Review</span>"Best barber in town!"</div>
   </div>
-  <div class="notif notif-3">
-    <div class="notif-icon ni-orange">💰</div>
-    <div class="notif-text"><span class="notif-label">Payment</span>$45 from Jordan T.</div>
+  <div class="notif n3">
+    <div class="n-icon ni-o">💰</div>
+    <div><span class="n-lbl">Payment</span>$45 from Jordan T.</div>
   </div>
 </div>
 ```
@@ -824,318 +1213,423 @@ nav{padding:0 5%}
   </div>
 </section>
 
-<!-- ═══ TICKER ═══ -->
+<!-- ======================== TICKER ======================== -->
 
-<div class="ticker"><div class="ticker-track">
-  <span class="t-item">AUTOMATED BOOKING</span><span class="t-item t-sep">✦</span>
-  <span class="t-item">24/7 AI SYSTEMS</span><span class="t-item t-sep">✦</span>
-  <span class="t-item">REVIEW AUTOMATION</span><span class="t-item t-sep">✦</span>
-  <span class="t-item">BRANDED MERCH STORES</span><span class="t-item t-sep">✦</span>
-  <span class="t-item">LIVE IN 5 DAYS</span><span class="t-item t-sep">✦</span>
-  <span class="t-item">NO CONTRACTS</span><span class="t-item t-sep">✦</span>
-  <span class="t-item">30-DAY GUARANTEE</span><span class="t-item t-sep">✦</span>
-  <span class="t-item">AUTOMATED BOOKING</span><span class="t-item t-sep">✦</span>
-  <span class="t-item">24/7 AI SYSTEMS</span><span class="t-item t-sep">✦</span>
-  <span class="t-item">REVIEW AUTOMATION</span><span class="t-item t-sep">✦</span>
-  <span class="t-item">BRANDED MERCH STORES</span><span class="t-item t-sep">✦</span>
-  <span class="t-item">LIVE IN 5 DAYS</span><span class="t-item t-sep">✦</span>
-  <span class="t-item">NO CONTRACTS</span><span class="t-item t-sep">✦</span>
-  <span class="t-item">30-DAY GUARANTEE</span><span class="t-item t-sep">✦</span>
-</div></div>
-
-<!-- ═══ STATS ═══ -->
-
-<div class="stats reveal">
-  <div class="stat"><div class="stat-num">5</div><div class="stat-lbl">Days to Go Live</div></div>
-  <div class="stat"><div class="stat-num">24/7</div><div class="stat-lbl">Automated Systems</div></div>
-  <div class="stat"><div class="stat-num">50%</div><div class="stat-lbl">Fewer No-Shows</div></div>
-  <div class="stat"><div class="stat-num">3X</div><div class="stat-lbl">More Google Reviews</div></div>
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ti">AUTOMATED BOOKING</span><span class="ti ts">✦</span>
+    <span class="ti">24/7 AI SYSTEMS</span><span class="ti ts">✦</span>
+    <span class="ti">REVIEW AUTOMATION</span><span class="ti ts">✦</span>
+    <span class="ti">BRANDED MERCH STORES</span><span class="ti ts">✦</span>
+    <span class="ti">LIVE IN 5 DAYS</span><span class="ti ts">✦</span>
+    <span class="ti">NO CONTRACTS</span><span class="ti ts">✦</span>
+    <span class="ti">30-DAY GUARANTEE</span><span class="ti ts">✦</span>
+    <span class="ti">AUTOMATED BOOKING</span><span class="ti ts">✦</span>
+    <span class="ti">24/7 AI SYSTEMS</span><span class="ti ts">✦</span>
+    <span class="ti">REVIEW AUTOMATION</span><span class="ti ts">✦</span>
+    <span class="ti">BRANDED MERCH STORES</span><span class="ti ts">✦</span>
+    <span class="ti">LIVE IN 5 DAYS</span><span class="ti ts">✦</span>
+    <span class="ti">NO CONTRACTS</span><span class="ti ts">✦</span>
+    <span class="ti">30-DAY GUARANTEE</span><span class="ti ts">✦</span>
+  </div>
 </div>
 
-<!-- ═══ HOW IT WORKS ═══ -->
+<!-- ======================== STATS ======================== -->
+
+<div class="stats reveal">
+  <div class="stat">
+    <div class="stat-num">5</div>
+    <div class="stat-lbl">Days to Go Live</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">24/7</div>
+    <div class="stat-lbl">Automated Systems</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">50%</div>
+    <div class="stat-lbl">Fewer No-Shows</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">3X</div>
+    <div class="stat-lbl">More Google Reviews</div>
+  </div>
+</div>
+
+<!-- ======================== HOW IT WORKS ======================== -->
 
 <section class="sec" id="how">
   <div class="reveal">
-    <div class="sec-eyebrow"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text">The Process</span></div>
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">The Process</span></div>
     <h2 class="sec-title">HOW IT <span>WORKS</span></h2>
     <p class="sec-sub">From zero to fully automated in 5 business days. Here's exactly what happens after you sign up.</p>
   </div>
   <div class="steps reveal">
-    <div class="step"><span class="step-num">01</span><span class="step-icon">📦</span><div class="step-title">Choose Your Package</div><div class="step-desc">Pick the plan that fits your business and budget. Pay the setup fee to get started in minutes.</div></div>
-    <div class="step"><span class="step-num">02</span><span class="step-icon">📋</span><div class="step-title">Fill Onboarding Form</div><div class="step-desc">Tell us your logo, services, photos, hours, pricing. Takes about 10 minutes and we handle the rest.</div></div>
-    <div class="step"><span class="step-num">03</span><span class="step-icon">⚡</span><div class="step-title">We Build Everything</div><div class="step-desc">Your complete system is built and live within 5 business days. You approve every detail before we launch.</div></div>
-    <div class="step"><span class="step-num">04</span><span class="step-icon">🤖</span><div class="step-title">System Runs Itself</div><div class="step-desc">From day one your site books clients, sends reminders, and collects reviews automatically. Forever.</div></div>
-  </div>
-</section>
-
-<!-- ═══ PACKAGES ═══ -->
-
-<section class="sec sec-dark" id="packages">
-  <div class="pkg-header reveal">
-    <div>
-      <div class="sec-eyebrow"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text">Pricing</span></div>
-      <h2 class="sec-title">FIND YOUR <span>FIT</span></h2>
+    <div class="step">
+      <span class="step-num">01</span>
+      <span class="step-icon">📦</span>
+      <div class="step-title">Choose Your Package</div>
+      <div class="step-desc">Pick the plan that fits your business and budget. Pay the setup fee to get started in minutes.</div>
     </div>
-    <p class="pkg-note">Month to month · No contracts · Cancel anytime · 30-day money back guarantee on every plan.</p>
+    <div class="step">
+      <span class="step-num">02</span>
+      <span class="step-icon">📋</span>
+      <div class="step-title">Fill Onboarding Form</div>
+      <div class="step-desc">Tell us your logo, services, photos, hours, and pricing. Takes about 10 minutes.</div>
+    </div>
+    <div class="step">
+      <span class="step-num">03</span>
+      <span class="step-icon">⚡</span>
+      <div class="step-title">We Build Everything</div>
+      <div class="step-desc">Your complete system is built and live within 5 business days. You approve before we launch.</div>
+    </div>
+    <div class="step">
+      <span class="step-num">04</span>
+      <span class="step-icon">🤖</span>
+      <div class="step-title">System Runs Itself</div>
+      <div class="step-desc">From day one your site books clients, sends reminders, and collects reviews automatically.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== PACKAGES ======================== -->
+
+<section class="sec sec-alt" id="packages">
+  <div class="reveal">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Pricing</span></div>
+    <h2 class="sec-title">FIND YOUR <span>FIT</span></h2>
+    <p class="sec-sub">Month to month. No contracts. Cancel anytime. 30-day money back guarantee on every plan.</p>
   </div>
 
-  <div class="pkg-grid reveal">
+  <div class="pkg-wrap reveal">
+    <div class="pkg-row">
 
 ```
-<div class="pkg-card">
-  <span class="pkg-emoji">🥉</span>
-  <div class="pkg-name">Starter</div>
-  <div class="pkg-setup">$499</div>
-  <div class="pkg-monthly">+ $147/month</div>
-  <div class="pkg-divider"></div>
-  <ul class="pkg-features">
-    <li>Custom 5-page website</li>
-    <li>Mobile responsive design</li>
-    <li>Basic SEO setup</li>
-    <li>Contact form + maps</li>
-    <li>Social media links</li>
-    <li>Monthly hosting</li>
-    <li>Email support</li>
-  </ul>
-  <a href="https://link.fastpaydirect.com/payment-link/69b9e476c1b7344f595a5744" target="_blank" class="pkg-btn">Get Started</a>
-</div>
+  <div class="pkg-card">
+    <span class="pkg-emoji">🥉</span>
+    <div class="pkg-name">Starter</div>
+    <div class="pkg-price">$499</div>
+    <div class="pkg-mo">+ $147/month</div>
+    <div class="pkg-line"></div>
+    <ul class="pkg-feats">
+      <li>Custom 5-page website</li>
+      <li>Mobile responsive design</li>
+      <li>Basic SEO setup</li>
+      <li>Contact form + maps</li>
+      <li>Social media links</li>
+      <li>Monthly hosting included</li>
+      <li>Email support</li>
+    </ul>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e476c1b7344f595a5744" target="_blank" class="pkg-btn">Get Started</a>
+  </div>
 
-<div class="pkg-card featured">
-  <div class="pkg-popular">⭐ Most Popular</div>
-  <span class="pkg-emoji">🥇</span>
-  <div class="pkg-name">Growth</div>
-  <div class="pkg-setup">$799</div>
-  <div class="pkg-monthly">+ $247/month</div>
-  <div class="pkg-divider"></div>
-  <ul class="pkg-features">
-    <li>Everything in Starter</li>
-    <li>Online booking 24/7</li>
-    <li>Confirmation SMS + email</li>
-    <li>24hr reminder texts</li>
-    <li>No-show follow ups</li>
-    <li>Review request automation</li>
-    <li>Lead capture + follow-up</li>
-    <li>CRM pipeline</li>
-    <li>Instagram booking link</li>
-  </ul>
-  <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="pkg-btn">Get Started</a>
-</div>
+  <div class="pkg-card featured">
+    <div class="pkg-tag">⭐ Most Popular</div>
+    <span class="pkg-emoji">🥇</span>
+    <div class="pkg-name">Growth</div>
+    <div class="pkg-price">$799</div>
+    <div class="pkg-mo">+ $247/month</div>
+    <div class="pkg-line"></div>
+    <ul class="pkg-feats">
+      <li>Everything in Starter</li>
+      <li>Online booking 24/7</li>
+      <li>Confirmation SMS + email</li>
+      <li>24hr reminder texts</li>
+      <li>No-show follow ups</li>
+      <li>Review request automation</li>
+      <li>Lead capture + follow-up</li>
+      <li>CRM pipeline</li>
+      <li>Instagram booking link</li>
+    </ul>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="pkg-btn">Get Started</a>
+  </div>
 
-<div class="pkg-card">
-  <span class="pkg-emoji">💎</span>
-  <div class="pkg-name">Pro</div>
-  <div class="pkg-setup">$1,299</div>
-  <div class="pkg-monthly">+ $347/month</div>
-  <div class="pkg-divider"></div>
-  <ul class="pkg-features">
-    <li>Everything in Growth</li>
-    <li>AI chatbot 24/7</li>
-    <li>AI phone answering</li>
-    <li>Deposit collection</li>
-    <li>Custom email sequences</li>
-    <li>AI review responses</li>
-    <li>Blog + domain setup</li>
-    <li>Strategy call included</li>
-  </ul>
-  <a href="https://link.fastpaydirect.com/payment-link/69b9e4b9c1b7344f595a5745" target="_blank" class="pkg-btn">Get Started</a>
-</div>
+  <div class="pkg-card">
+    <span class="pkg-emoji">💎</span>
+    <div class="pkg-name">Pro</div>
+    <div class="pkg-price">$1,299</div>
+    <div class="pkg-mo">+ $347/month</div>
+    <div class="pkg-line"></div>
+    <ul class="pkg-feats">
+      <li>Everything in Growth</li>
+      <li>AI chatbot 24/7</li>
+      <li>AI phone answering</li>
+      <li>Deposit collection</li>
+      <li>Custom email sequences</li>
+      <li>AI review responses</li>
+      <li>Blog + domain setup</li>
+      <li>Strategy call included</li>
+    </ul>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e4b9c1b7344f595a5745" target="_blank" class="pkg-btn">Get Started</a>
+  </div>
 
-<div class="pkg-card">
-  <span class="pkg-emoji">🏢</span>
-  <div class="pkg-name">Enterprise</div>
-  <div class="pkg-setup">$1,999</div>
-  <div class="pkg-monthly">+ $497/month</div>
-  <div class="pkg-divider"></div>
-  <ul class="pkg-features">
-    <li>Everything in Pro</li>
-    <li>Monthly SEO management</li>
-    <li>Google Ads management</li>
-    <li>8 social posts/month</li>
-    <li>Weekly strategy calls</li>
-    <li>Advanced reporting</li>
-    <li>Dedicated account manager</li>
-  </ul>
-  <a href="https://link.fastpaydirect.com/payment-link/69b9e4def35c540e14833189" target="_blank" class="pkg-btn">Get Started</a>
-</div>
+  <div class="pkg-card">
+    <span class="pkg-emoji">🏢</span>
+    <div class="pkg-name">Enterprise</div>
+    <div class="pkg-price">$1,999</div>
+    <div class="pkg-mo">+ $497/month</div>
+    <div class="pkg-line"></div>
+    <ul class="pkg-feats">
+      <li>Everything in Pro</li>
+      <li>Monthly SEO management</li>
+      <li>Google Ads management</li>
+      <li>8 social posts/month</li>
+      <li>Weekly strategy calls</li>
+      <li>Advanced analytics</li>
+      <li>Dedicated account manager</li>
+    </ul>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e4def35c540e14833189" target="_blank" class="pkg-btn">Get Started</a>
+  </div>
 
-<div class="pkg-card">
-  <span class="pkg-emoji">👑</span>
-  <div class="pkg-name">Ultimate</div>
-  <div class="pkg-setup">$3,999</div>
-  <div class="pkg-monthly">+ $797/month</div>
-  <div class="pkg-divider"></div>
-  <ul class="pkg-features">
-    <li>Everything in Enterprise</li>
-    <li>Full brand identity</li>
-    <li>AI brand photography</li>
-    <li>Branded merch store</li>
-    <li>10 custom products</li>
-    <li>Unlimited pages</li>
-    <li>Bi-weekly strategy calls</li>
-  </ul>
-  <a href="https://link.fastpaydirect.com/payment-link/69b9e57bf35c540e1483318b" target="_blank" class="pkg-btn">Get Started</a>
+  <div class="pkg-card">
+    <span class="pkg-emoji">👑</span>
+    <div class="pkg-name">Ultimate</div>
+    <div class="pkg-price">$3,999</div>
+    <div class="pkg-mo">+ $797/month</div>
+    <div class="pkg-line"></div>
+    <ul class="pkg-feats">
+      <li>Everything in Enterprise</li>
+      <li>Full brand identity</li>
+      <li>AI brand photography</li>
+      <li>Branded merch store</li>
+      <li>10 custom products</li>
+      <li>Unlimited pages</li>
+      <li>Bi-weekly strategy calls</li>
+    </ul>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e57bf35c540e1483318b" target="_blank" class="pkg-btn">Get Started</a>
+  </div>
+
 </div>
 ```
 
   </div>
 </section>
 
-<!-- ═══ AUTOMATIONS ═══ -->
+<!-- ======================== AUTOMATIONS ======================== -->
 
 <section class="sec" id="automations">
   <div class="reveal">
-    <div class="sec-eyebrow"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text">The System</span></div>
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">The System</span></div>
     <h2 class="sec-title">6 AUTOMATIONS<br><span>RUNNING 24/7</span></h2>
     <p class="sec-sub">Every automation fires on its own. You focus on your craft. The system handles everything else.</p>
   </div>
-  <div class="auto-grid">
+  <div class="auto-wrap">
     <div class="auto-list reveal">
       <div class="auto-item active">
         <div class="auto-icon">📅</div>
-        <div><div class="auto-title">Appointment Confirmation</div><div class="auto-desc">Instant SMS + email the second someone books online</div></div>
-        <div class="auto-badge">LIVE</div>
+        <div>
+          <div class="auto-title">Appointment Confirmation</div>
+          <div class="auto-desc">Instant SMS + email the second someone books online</div>
+        </div>
+        <div class="auto-live">LIVE</div>
       </div>
       <div class="auto-item">
         <div class="auto-icon">⏰</div>
-        <div><div class="auto-title">24hr Reminder Texts</div><div class="auto-desc">Reduce no-shows by 50% with automatic reminders</div></div>
-        <div class="auto-badge">LIVE</div>
+        <div>
+          <div class="auto-title">24hr Reminder Texts</div>
+          <div class="auto-desc">Reduce no-shows by 50% with automatic reminders</div>
+        </div>
+        <div class="auto-live">LIVE</div>
       </div>
       <div class="auto-item">
         <div class="auto-icon">👻</div>
-        <div><div class="auto-title">No-Show Recovery</div><div class="auto-desc">Automatically follow up with clients who missed appointments</div></div>
-        <div class="auto-badge">LIVE</div>
+        <div>
+          <div class="auto-title">No-Show Recovery</div>
+          <div class="auto-desc">Automatically follow up with clients who missed appointments</div>
+        </div>
+        <div class="auto-live">LIVE</div>
       </div>
       <div class="auto-item">
         <div class="auto-icon">⭐</div>
-        <div><div class="auto-title">Review Request</div><div class="auto-desc">Google review link sent after every completed appointment</div></div>
-        <div class="auto-badge">LIVE</div>
+        <div>
+          <div class="auto-title">Review Request</div>
+          <div class="auto-desc">Google review link sent after every completed appointment</div>
+        </div>
+        <div class="auto-live">LIVE</div>
       </div>
       <div class="auto-item">
         <div class="auto-icon">🔄</div>
-        <div><div class="auto-title">60-Day Win-Back</div><div class="auto-desc">Re-engage clients who haven't visited in 60+ days automatically</div></div>
-        <div class="auto-badge">LIVE</div>
+        <div>
+          <div class="auto-title">60-Day Win-Back</div>
+          <div class="auto-desc">Re-engage clients who haven't visited in 60+ days</div>
+        </div>
+        <div class="auto-live">LIVE</div>
       </div>
       <div class="auto-item">
         <div class="auto-icon">🎯</div>
-        <div><div class="auto-title">Lead Follow-Up</div><div class="auto-desc">5-minute automated follow-up to every new inquiry</div></div>
-        <div class="auto-badge">LIVE</div>
+        <div>
+          <div class="auto-title">Lead Follow-Up</div>
+          <div class="auto-desc">5-minute automated response to every new inquiry</div>
+        </div>
+        <div class="auto-live">LIVE</div>
       </div>
     </div>
-    <div class="reveal delay-2">
-      <div class="sms-demo">
-        <div class="sms-bar"></div>
-        <div class="sms-screen">
-          <div class="sms-head">
-            <div class="sms-av">M</div>
-            <div><div class="sms-name">Mojo Digital Agency</div><div class="sms-sub">Automated Messages</div></div>
-          </div>
-          <div class="sms-msg sms-in"><div class="sms-bubble">Hey Marcus! ✅ Your appointment at Fresh Cuts is confirmed for tomorrow at 3:00 PM. See you then!</div><div class="sms-time">10:32 AM</div></div>
-          <div class="sms-msg sms-in"><div class="sms-bubble">⏰ Reminder: You have an appointment today at 3PM at Fresh Cuts. We look forward to seeing you!</div><div class="sms-time">9:00 AM</div></div>
-          <div class="sms-msg sms-in"><div class="sms-bubble">Thanks for visiting Fresh Cuts! 🙏 We'd love your feedback — leave us a Google review: [link]</div><div class="sms-time">5:15 PM</div></div>
-          <div class="sms-msg sms-out"><div class="sms-bubble">Just left 5 stars! Best barber in the city 🔥</div><div class="sms-time">5:28 PM</div></div>
+
+```
+<div class="reveal d2">
+  <div class="sms-phone">
+    <div class="sms-bar"></div>
+    <div class="sms-screen">
+      <div class="sms-header">
+        <div class="sms-av">M</div>
+        <div>
+          <div class="sms-name">Mojo Digital Agency</div>
+          <div class="sms-sub">Automated Messages</div>
         </div>
+      </div>
+      <div class="msg msg-in">
+        <div class="bubble">Hey Marcus! ✅ Your appointment at Fresh Cuts is confirmed for tomorrow at 3:00 PM. See you then!</div>
+        <div class="msg-time">10:32 AM</div>
+      </div>
+      <div class="msg msg-in">
+        <div class="bubble">⏰ Reminder: You have an appointment today at 3PM at Fresh Cuts. We look forward to seeing you!</div>
+        <div class="msg-time">9:00 AM</div>
+      </div>
+      <div class="msg msg-in">
+        <div class="bubble">Thanks for visiting! 🙏 We'd love your Google review: [link]</div>
+        <div class="msg-time">5:15 PM</div>
+      </div>
+      <div class="msg msg-out">
+        <div class="bubble">Just left 5 stars! Best in the city 🔥</div>
+        <div class="msg-time">5:28 PM</div>
       </div>
     </div>
   </div>
+</div>
+```
+
+  </div>
 </section>
 
-<!-- ═══ WHY US ═══ -->
+<!-- ======================== WHY US ======================== -->
 
-<section class="sec sec-dark">
+<section class="sec sec-alt">
   <div class="reveal" style="text-align:center">
-    <div class="sec-eyebrow" style="justify-content:center"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text">Why Mojo Digital</span><div class="sec-eyebrow-line"></div></div>
+    <div class="eyebrow" style="justify-content:center">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Why Mojo Digital</span>
+      <div class="eyebrow-line"></div>
+    </div>
     <h2 class="sec-title">WHY BUSINESSES <span>CHOOSE US</span></h2>
   </div>
   <div class="why-grid reveal">
-    <div class="why-card"><span class="why-icon">⚡</span><div class="why-title">Live in 5 Business Days</div><div class="why-desc">From payment to live website in 5 days. We move fast so you start capturing bookings and reviews immediately.</div></div>
-    <div class="why-card"><span class="why-icon">🤖</span><div class="why-title">Everything Runs Automatically</div><div class="why-desc">Confirmations, reminders, review requests, follow-ups — all automated. Zero effort from you after we launch.</div></div>
-    <div class="why-card"><span class="why-icon">🎯</span><div class="why-title">Built for Your Industry</div><div class="why-desc">We specialize in appointment-based businesses. Barber shops, tattoo studios, salons, med spas. We know your world.</div></div>
-    <div class="why-card"><span class="why-icon">💰</span><div class="why-title">Pays for Itself Fast</div><div class="why-desc">Just 7 extra bookings a month covers the Growth package. Most clients see ROI in their very first week.</div></div>
-    <div class="why-card"><span class="why-icon">🔓</span><div class="why-title">No Contracts Ever</div><div class="why-desc">Month to month. Cancel anytime with no questions asked. We earn your business every single month.</div></div>
-    <div class="why-card"><span class="why-icon">🛡️</span><div class="why-title">30-Day Guarantee</div><div class="why-desc">Not happy in the first 30 days? We refund your setup fee in full. Zero risk. That's how confident we are.</div></div>
+    <div class="why-card">
+      <span class="why-icon">⚡</span>
+      <div class="why-title">Live in 5 Business Days</div>
+      <div class="why-desc">From payment to live website in 5 days. We move fast so you start capturing bookings immediately.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🤖</span>
+      <div class="why-title">Everything Runs Automatically</div>
+      <div class="why-desc">Confirmations, reminders, review requests, follow-ups — all automated. Zero effort after we launch.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🎯</span>
+      <div class="why-title">Built for Your Industry</div>
+      <div class="why-desc">We specialize in appointment-based businesses. Barber shops, tattoo studios, salons, med spas.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">💰</span>
+      <div class="why-title">Pays for Itself Fast</div>
+      <div class="why-desc">Just 7 extra bookings a month covers the Growth package. Most clients see ROI in their first week.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🔓</span>
+      <div class="why-title">No Contracts Ever</div>
+      <div class="why-desc">Month to month. Cancel anytime with no questions asked. We earn your business every month.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🛡️</span>
+      <div class="why-title">30-Day Guarantee</div>
+      <div class="why-desc">Not happy in the first 30 days? Full refund on your setup fee. Zero risk to you.</div>
+    </div>
   </div>
 </section>
 
-<!-- ═══ GUARANTEE ═══ -->
+<!-- ======================== GUARANTEE ======================== -->
 
 <section class="guarantee">
-  <div class="g-badge reveal"><div class="g-days">30</div><div class="g-word">Day Guarantee</div></div>
+  <div class="g-ring reveal">
+    <div class="g-num">30</div>
+    <div class="g-word">Day Guarantee</div>
+  </div>
   <h2 class="g-title reveal">ZERO <span>RISK.</span><br>ALL REWARD.</h2>
-  <p class="g-desc reveal">If you're not completely satisfied with your new system in the first 30 days we'll refund your setup fee in full. No questions asked. No hassle. That's our promise.</p>
-  <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="btn-orange reveal" style="display:inline-flex">Claim Your Guarantee <span>→</span></a>
+  <p class="g-desc reveal">If you're not completely satisfied with your new system in the first 30 days we'll refund your setup fee in full. No questions. No hassle. That's our promise.</p>
+  <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="btn-orange reveal">Claim Your Guarantee <span>→</span></a>
 </section>
 
-<!-- ═══ CTA ═══ -->
+<!-- ======================== CTA ======================== -->
 
-<section class="cta-sec">
+<section class="cta">
   <span class="cta-eye reveal">Ready to grow?</span>
   <h2 class="cta-title reveal">
-    <span class="cl1">STOP LOSING</span>
-    <span class="cl2">BOOKINGS.</span>
-    <span class="cl3">START GROWING.</span>
+    <span class="c1">STOP LOSING</span>
+    <span class="c2">BOOKINGS.</span>
+    <span class="c3">START GROWING.</span>
   </h2>
   <p class="cta-sub reveal">Your system could be live in 5 days. Every day you wait is revenue lost to a competitor who already has one.</p>
   <div class="cta-btns reveal">
-    <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="btn-gold">Get Started Today <span>→</span></a>
-    <a href="https://effulgent-brigadeiros-eafd70.netlify.app" target="_blank" class="btn-ghost">View Live Demo →</a>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="btn-primary">Get Started Today <span>→</span></a>
+    <a href="https://cleancutsdemo.vercel.app" target="_blank" class="btn-secondary">View Live Demo →</a>
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- ======================== FOOTER ======================== -->
 
 <footer>
   <div class="footer-grid">
     <div>
-      <span class="footer-logo">MOJO<span>DIGITAL</span></span>
-      <p class="footer-tagline">Automated systems for appointment-based businesses. We build it. It runs itself.</p>
-      <div class="footer-social">
-        <a href="#" class="fsoc">IG</a>
-        <a href="#" class="fsoc">FB</a>
-        <a href="#" class="fsoc">G</a>
+      <span class="f-logo">MOJO<span>DIGITAL</span></span>
+      <p class="f-tag">Automated systems for appointment-based businesses. We build it. It runs itself.</p>
+      <div class="f-social">
+        <a href="#" class="f-soc">IG</a>
+        <a href="#" class="f-soc">FB</a>
+        <a href="#" class="f-soc">G</a>
       </div>
     </div>
     <div>
-      <div class="footer-col-title">Navigate</div>
-      <ul class="footer-links">
+      <div class="f-col-title">Navigate</div>
+      <ul class="f-links">
         <li><a href="#how">How It Works</a></li>
         <li><a href="#packages">Packages</a></li>
         <li><a href="#automations">Automations</a></li>
-        <li><a href="https://effulgent-brigadeiros-eafd70.netlify.app" target="_blank">View Demo</a></li>
+        <li><a href="https://cleancutsdemo.vercel.app" target="_blank">View Demo</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Legal</div>
-      <ul class="footer-links">
+      <div class="f-col-title">Legal</div>
+      <ul class="f-links">
         <li><a href="https://docs.google.com/document/d/e/2PACX-1vSvlIpzSCOuAQKsKs8vdM5cPKkL_SENdODAEhCVOEv7VnRKXqVA0N1MP6hlOKqivkYyeZuHyIHCpsnr/pub" target="_blank">Privacy Policy</a></li>
         <li><a href="https://docs.google.com/document/d/e/2PACX-1vQfR30RBMzLWVbRudKT0ToAxGzaMn-xcns7dPjPB4ZIiH70WYJd2NNJzwQzEHLsCbie9_DlvfbZ7oHI/pub" target="_blank">Terms of Service</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Contact</div>
-      <div class="footer-contact"><a href="tel:8315664767">(831) 566-4767</a></div>
-      <div class="footer-contact"><a href="mailto:hello@mojowebsite.com">hello@mojowebsite.com</a></div>
-      <div class="footer-contact">Los Angeles, CA</div>
-      <div style="margin-top:18px"><a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="nav-cta" style="font-size:10px;padding:10px 20px">Get Started →</a></div>
+      <div class="f-col-title">Contact</div>
+      <div class="f-contact"><a href="tel:8315664767">(831) 566-4767</a></div>
+      <div class="f-contact"><a href="mailto:hello@mojowebsite.com">hello@mojowebsite.com</a></div>
+      <div class="f-contact">Los Angeles, CA</div>
+      <div style="margin-top:16px">
+        <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="nav-cta" style="font-size:10px;padding:10px 18px">Get Started →</a>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Mojo Digital Agency · All rights reserved.</div>
-    <div class="footer-pow">mojowebsite.com · hello@mojowebsite.com · (831) 566-4767</div>
+    <div class="f-copy">© 2026 Mojo Digital Agency · All rights reserved.</div>
+    <div class="f-info">mojowebsite.com · hello@mojowebsite.com · (831) 566-4767</div>
   </div>
 </footer>
 
 <script>
-/* ── SCROLL REVEAL ── */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
     }
   });
-}, { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-/* ── AUTOMATION TABS ── */
+// Automation tabs
 document.querySelectorAll('.auto-item').forEach(item => {
   item.addEventListener('click', () => {
     document.querySelectorAll('.auto-item').forEach(i => i.classList.remove('active'));
@@ -1143,47 +1637,21 @@ document.querySelectorAll('.auto-item').forEach(item => {
   });
 });
 
-/* ── MOBILE NAV ── */
+// Mobile nav toggle
 const ham = document.getElementById('ham');
-let mobileNavOpen = false;
-let mobileNav = null;
+const mob = document.getElementById('mob');
+ham.addEventListener('click', () => mob.classList.toggle('open'));
 
-ham.addEventListener('click', () => {
-  if (mobileNavOpen) {
-    mobileNav && mobileNav.remove();
-    mobileNavOpen = false;
-    return;
-  }
-  mobileNav = document.createElement('div');
-  mobileNav.style.cssText = 'position:fixed;top:68px;left:0;right:0;background:rgba(13,13,20,0.99);border-bottom:1px solid rgba(201,168,76,0.15);padding:24px 5%;z-index:499;backdrop-filter:blur(20px)';
-  const links = [
-    ['#how','How It Works'],['#packages','Packages'],
-    ['#automations','Automations'],
-    ['https://effulgent-brigadeiros-eafd70.netlify.app','💈 Barbershop Demo','_blank'],
-    ['https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184','Get Started →','_blank'],
-  ];
-  links.forEach(([href, text, target]) => {
-    const a = document.createElement('a');
-    a.href = href;
-    a.textContent = text;
-    if(target) a.target = target;
-    a.style.cssText = 'display:block;padding:13px 0;font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:#8A8A9A;border-bottom:1px solid rgba(201,168,76,0.07);transition:color .2s';
-    a.addEventListener('mouseenter', () => a.style.color = '#F5F0E8');
-    a.addEventListener('mouseleave', () => a.style.color = '#8A8A9A');
-    a.addEventListener('click', () => { mobileNav.remove(); mobileNavOpen = false; });
-    mobileNav.appendChild(a);
-  });
-  document.body.appendChild(mobileNav);
-  mobileNavOpen = true;
-});
+function closeMob() { mob.classList.remove('open'); }
 
-/* ── SMOOTH SCROLL ── */
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const id = a.getAttribute('href');
     const target = document.querySelector(id);
     if (target && id !== '#') {
       e.preventDefault();
+      closeMob();
       window.scrollTo({ top: target.offsetTop - 68, behavior: 'smooth' });
     }
   });
