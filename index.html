@@ -367,20 +367,24 @@ animation: float 6s ease-in-out infinite;
 
 .phone {
 width: 264px;
-background: var(–dark2);
-border: 1px solid rgba(201,168,76,0.2);
+background: #2A2A3A;
+border: 2px solid rgba(201,168,76,0.6);
 border-radius: 44px;
 padding: 20px;
-box-shadow: 0 48px 100px rgba(0,0,0,0.65), inset 0 1px 0 rgba(201,168,76,0.1);
+box-shadow:
+0 0 0 6px rgba(201,168,76,0.06),
+0 0 0 7px rgba(201,168,76,0.12),
+0 40px 80px rgba(0,0,0,0.7),
+0 0 40px rgba(201,168,76,0.12);
 }
 .phone-notch {
 width: 68px; height: 5px;
-background: var(–dark3);
+background: rgba(201,168,76,0.4);
 border-radius: 3px;
 margin: 0 auto 16px;
 }
 .phone-screen {
-background: var(–dark3);
+background: #F8F6F2;
 border-radius: 28px;
 padding: 16px;
 }
@@ -390,7 +394,7 @@ align-items: center;
 gap: 10px;
 margin-bottom: 14px;
 padding-bottom: 12px;
-border-bottom: 1px solid rgba(201,168,76,0.08);
+border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 .phone-icon {
 width: 32px; height: 32px;
@@ -404,8 +408,8 @@ font-size: 16px;
 color: var(–dark);
 flex-shrink: 0;
 }
-.phone-biz { font-size: 12px; font-weight: 600; color: var(–white); }
-.phone-stars { font-size: 10px; color: var(–gold); margin-top: 1px; }
+.phone-biz { font-size: 12px; font-weight: 600; color: #1a1a1a; }
+.phone-stars { font-size: 10px; color: #C9A84C; margin-top: 1px; }
 .phone-btn {
 width: 100%;
 background: var(–gold);
@@ -425,16 +429,17 @@ grid-template-columns: 1fr 1fr;
 gap: 7px;
 }
 .phone-svc {
-background: rgba(201,168,76,0.07);
-border: 1px solid rgba(201,168,76,0.12);
+background: #FFFFFF;
+border: 1px solid #EBEBEB;
 border-radius: 9px;
 padding: 9px;
 font-size: 11px;
-color: var(–white);
+color: #1a1a1a;
 font-weight: 500;
+box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 .phone-svc-price {
-color: var(–gold);
+color: #8B6914;
 font-size: 12px;
 font-weight: 700;
 display: block;
