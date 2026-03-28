@@ -743,6 +743,10 @@ gap: 72px;
 align-items: center;
 margin-top: 60px;
 }
+.auto-wrap > * {
+min-width: 0;
+width: 100%;
+}
 .auto-list { display: flex; flex-direction: column; gap: 2px; }
 .auto-item {
 display: flex;
@@ -1426,7 +1430,7 @@ margin-bottom: 2px;
     <p class="sec-sub">Every automation fires on its own. You focus on your craft. The system handles everything else.</p>
   </div>
   <div class="auto-wrap">
-    <div class="auto-list reveal">
+    <div class="auto-list">
       <div class="auto-item active">
         <div class="auto-icon">📅</div>
         <div>
@@ -1478,7 +1482,7 @@ margin-bottom: 2px;
     </div>
 
 ```
-<div class="reveal d2">
+<div style="min-width:0;width:100%">
   <div class="sms-phone">
     <div class="sms-bar"></div>
     <div class="sms-screen">
