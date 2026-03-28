@@ -1054,14 +1054,14 @@ gap: 10px;
 
 /* Store packages — 4 columns not 5 */
 #stores .pkg-row {
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: repeat(5, 1fr);
 }
 
 /* =============================================
 RESPONSIVE — TABLET ≤1100px
 ============================================= */
 @media (max-width: 1100px) {
-#stores .pkg-row { grid-template-columns: repeat(2, 1fr); }
+#stores .pkg-row { grid-template-columns: repeat(3, 1fr); }
 .nav-links { display: none; }
 .hero-inner { flex-direction: column; align-items: center; gap: 48px; }
 .hero-left { max-width: 100%; }
@@ -1638,6 +1638,24 @@ margin-bottom: 2px;
     <div class="pkg-row">
 
 ```
+  <div class="pkg-card">
+    <span class="pkg-emoji">✦</span>
+    <div class="pkg-name">Branding</div>
+    <div class="pkg-price">$599</div>
+    <div class="pkg-mo">One time payment</div>
+    <div class="pkg-line"></div>
+    <ul class="pkg-feats">
+      <li>Custom logo design</li>
+      <li>Brand color palette</li>
+      <li>Typography system</li>
+      <li>Brand guidelines doc</li>
+      <li>Social media kit</li>
+      <li>3 revision rounds</li>
+      <li>All files delivered</li>
+    </ul>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="pkg-btn">Get Started</a>
+  </div>
+
   <div class="pkg-card">
     <span class="pkg-emoji">🛍️</span>
     <div class="pkg-name">Starter Store</div>
