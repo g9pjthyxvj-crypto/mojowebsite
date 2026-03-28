@@ -16,7 +16,7 @@ RESET & BASE
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
-background: #0D0D14;
+background: #141418;
 color: #F5F0E8;
 font-family: ‘DM Sans’, system-ui, -apple-system, sans-serif;
 font-weight: 300;
@@ -30,9 +30,9 @@ img { max-width: 100%; display: block; }
 DESIGN TOKENS
 ============================================= */
 :root {
-–dark:    #0D0D14;
-–dark2:   #13131E;
-–dark3:   #1A1A2A;
+–dark:    #141418;
+–dark2:   #1C1C24;
+–dark3:   #242432;
 –gold:    #C9A84C;
 –gold2:   #E8C96A;
 –orange:  #E8681A;
@@ -363,7 +363,7 @@ flex-shrink: 0;
 position: relative;
 animation: float 6s ease-in-out infinite;
 }
-@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+@keyframes float { 0%,100%{transform:translateY(0px)} 25%{transform:translateY(-8px)} 75%{transform:translateY(-8px)} }
 
 .phone {
 width: 264px;
@@ -986,7 +986,7 @@ position: relative; z-index: 1;
 FOOTER
 ============================================= */
 footer {
-background: #09090F;
+background: #0F0F14;
 border-top: 1px solid var(–border2);
 padding: 64px 5% 28px;
 }
@@ -1046,8 +1046,9 @@ RESPONSIVE — TABLET ≤1100px
 ============================================= */
 @media (max-width: 1100px) {
 .nav-links { display: none; }
-.hero-right { display: none; }
+.hero-inner { flex-direction: column; align-items: center; gap: 48px; }
 .hero-left { max-width: 100%; }
+.hero-right { margin: 0 auto; }
 .stats { grid-template-columns: repeat(2, 1fr); }
 .stat + .stat::before { display: none; }
 .stat { padding: 16px 0; }
@@ -1071,7 +1072,10 @@ nav { padding: 0 4%; }
 .hamburger { display: flex; }
 
 .hero { padding: calc(var(–nav-h) + 40px) 4% 56px; }
-.hero-inner { flex-direction: column; }
+.hero-inner { flex-direction: column; align-items: center; }
+.hero-right { width: 220px; margin: 0 auto; }
+.phone { width: 100%; }
+.notif { display: none; }
 .hero-title { font-size: clamp(56px, 15vw, 80px); }
 .hero-btns { flex-direction: column; align-items: stretch; }
 .btn-primary, .btn-secondary { justify-content: center; }
