@@ -1100,6 +1100,10 @@ nav { padding: 0 4%; }
 .sec { padding: 64px 4%; }
 .steps { grid-template-columns: 1fr; }
 .auto-wrap { grid-template-columns: 1fr; gap: 44px; }
+.pkg-wrap .pkg-row { display: block; min-width: unset; }
+#stores .pkg-card { display: block; width: 100%; border-right: none; border: 1px solid var(–border2); margin-bottom: 2px; }
+#stores .pkg-card.featured { border-color: var(–gold); }
+#stores .reveal > div:last-child { flex-direction: column; }
 .why-grid { grid-template-columns: 1fr; }
 .footer-grid { grid-template-columns: 1fr; gap: 32px; }
 .footer-bottom { flex-direction: column; text-align: center; }
@@ -1136,6 +1140,7 @@ margin-bottom: 2px;
     <li><a href="#how">How It Works</a></li>
     <li><a href="#packages">Packages</a></li>
     <li><a href="#automations">Automations</a></li>
+    <li><a href="#stores">Store Packages</a></li>
     <li class="nav-dd">
       <span class="nav-dd-label">Demo Sites</span>
       <div class="nav-dd-menu">
@@ -1163,6 +1168,7 @@ margin-bottom: 2px;
   <a href="#how" onclick="closeMob()">How It Works</a>
   <a href="#packages" onclick="closeMob()">Packages</a>
   <a href="#automations" onclick="closeMob()">Automations</a>
+  <a href="#stores" onclick="closeMob()">Store Packages</a>
   <a href="https://cleancutsdemo.vercel.app" target="_blank">💈 Barbershop Demo</a>
   <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" style="color:var(--gold)">Get Started →</a>
 </div>
@@ -1272,6 +1278,53 @@ margin-bottom: 2px;
   </div>
 </div>
 
+<!-- ======================== WHY US ======================== -->
+
+<section class="sec sec-alt">
+  <div class="reveal" style="text-align:center">
+    <div class="eyebrow" style="justify-content:center">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Why Mojo Digital</span>
+      <div class="eyebrow-line"></div>
+    </div>
+    <h2 class="sec-title">EVERYTHING YOUR<br><span>BUSINESS NEEDS</span></h2>
+  </div>
+  <div class="why-grid reveal">
+    <div class="why-card">
+      <span class="why-icon">🌐</span>
+      <div class="why-title">Web Design & Development</div>
+      <div class="why-desc">Custom websites built to convert — fast, mobile-first, and designed to make your brand look world-class from day one.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">📅</span>
+      <div class="why-title">Smart Booking Systems</div>
+      <div class="why-desc">Online booking, automated confirmations, reminders and follow-ups. Your calendar fills itself while you focus on the work.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🤖</span>
+      <div class="why-title">AI & Automation</div>
+      <div class="why-desc">AI chatbots, automated follow-ups, review collection, lead nurturing — your business runs smarter around the clock.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">📣</span>
+      <div class="why-title">Marketing & Growth</div>
+      <div class="why-desc">Google Ads, SEO, social media content and reputation management — we drive traffic and turn it into paying customers.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">✦</span>
+      <div class="why-title">Branding & Identity</div>
+      <div class="why-desc">Logos, brand guidelines, AI photography and full visual identity — we make your business impossible to ignore.</div>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🛍️</span>
+      <div class="why-title">Online Stores & Merch</div>
+      <div class="why-desc">Branded merch stores, e-commerce, and digital products — turn your brand into a revenue stream beyond your core service.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== GUARANTEE ======================== -->
+
 <!-- ======================== HOW IT WORKS ======================== -->
 
 <section class="sec" id="how">
@@ -1305,119 +1358,6 @@ margin-bottom: 2px;
       <div class="step-title">System Runs Itself</div>
       <div class="step-desc">From day one your system works around the clock — booking, following up, collecting reviews, and growing your brand automatically.</div>
     </div>
-  </div>
-</section>
-
-<!-- ======================== PACKAGES ======================== -->
-
-<section class="sec sec-alt" id="packages">
-  <div class="reveal">
-    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Pricing</span></div>
-    <h2 class="sec-title">FIND YOUR <span>FIT</span></h2>
-    <p class="sec-sub">Every plan includes a dedicated client dashboard so you can manage bookings, leads, messages and reviews from one place — on desktop or mobile.</p>
-  </div>
-
-  <div class="pkg-wrap reveal">
-    <div class="pkg-row">
-
-```
-  <div class="pkg-card">
-    <span class="pkg-emoji">🥉</span>
-    <div class="pkg-name">Starter</div>
-    <div class="pkg-price">$499</div>
-    <div class="pkg-mo">+ $147/month</div>
-    <div class="pkg-line"></div>
-    <ul class="pkg-feats">
-      <li>Custom 5-page website</li>
-      <li>Mobile responsive design</li>
-      <li>Basic SEO setup</li>
-      <li>Contact form + maps</li>
-      <li>Social media links</li>
-      <li>Monthly hosting included</li>
-      <li>Email support</li>
-    </ul>
-    <a href="https://link.fastpaydirect.com/payment-link/69b9e476c1b7344f595a5744" target="_blank" class="pkg-btn">Get Started</a>
-  </div>
-
-  <div class="pkg-card featured">
-    <div class="pkg-tag">⭐ Most Popular</div>
-    <span class="pkg-emoji">🥇</span>
-    <div class="pkg-name">Growth</div>
-    <div class="pkg-price">$799</div>
-    <div class="pkg-mo">+ $247/month</div>
-    <div class="pkg-line"></div>
-    <ul class="pkg-feats">
-      <li>Everything in Starter</li>
-      <li>Online booking 24/7</li>
-      <li>Confirmation SMS + email</li>
-      <li>24hr reminder texts</li>
-      <li>No-show follow ups</li>
-      <li>Review request automation</li>
-      <li>Lead capture + follow-up</li>
-      <li>CRM pipeline</li>
-      <li>Instagram booking link</li>
-    </ul>
-    <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="pkg-btn">Get Started</a>
-  </div>
-
-  <div class="pkg-card">
-    <span class="pkg-emoji">💎</span>
-    <div class="pkg-name">Pro</div>
-    <div class="pkg-price">$1,299</div>
-    <div class="pkg-mo">+ $347/month</div>
-    <div class="pkg-line"></div>
-    <ul class="pkg-feats">
-      <li>Everything in Growth</li>
-      <li>AI chatbot 24/7</li>
-      <li>AI phone answering</li>
-      <li>Deposit collection</li>
-      <li>Custom email sequences</li>
-      <li>AI review responses</li>
-      <li>Blog + domain setup</li>
-      <li>Strategy call included</li>
-    </ul>
-    <a href="https://link.fastpaydirect.com/payment-link/69b9e4b9c1b7344f595a5745" target="_blank" class="pkg-btn">Get Started</a>
-  </div>
-
-  <div class="pkg-card">
-    <span class="pkg-emoji">🏢</span>
-    <div class="pkg-name">Enterprise</div>
-    <div class="pkg-price">$1,999</div>
-    <div class="pkg-mo">+ $497/month</div>
-    <div class="pkg-line"></div>
-    <ul class="pkg-feats">
-      <li>Everything in Pro</li>
-      <li>Monthly SEO management</li>
-      <li>Google Ads management</li>
-      <li>8 social posts/month</li>
-      <li>Weekly strategy calls</li>
-      <li>Advanced analytics</li>
-      <li>Dedicated account manager</li>
-    </ul>
-    <a href="https://link.fastpaydirect.com/payment-link/69b9e4def35c540e14833189" target="_blank" class="pkg-btn">Get Started</a>
-  </div>
-
-  <div class="pkg-card">
-    <span class="pkg-emoji">👑</span>
-    <div class="pkg-name">Ultimate</div>
-    <div class="pkg-price">$3,999</div>
-    <div class="pkg-mo">+ $797/month</div>
-    <div class="pkg-line"></div>
-    <ul class="pkg-feats">
-      <li>Everything in Enterprise</li>
-      <li>Full brand identity</li>
-      <li>AI brand photography</li>
-      <li>Branded merch store</li>
-      <li>10 custom products</li>
-      <li>Unlimited pages</li>
-      <li>Bi-weekly strategy calls</li>
-    </ul>
-    <a href="https://link.fastpaydirect.com/payment-link/69b9e57bf35c540e1483318b" target="_blank" class="pkg-btn">Get Started</a>
-  </div>
-
-</div>
-```
-
   </div>
 </section>
 
@@ -1517,52 +1457,7 @@ margin-bottom: 2px;
   </div>
 </section>
 
-<!-- ======================== WHY US ======================== -->
-
-<section class="sec sec-alt">
-  <div class="reveal" style="text-align:center">
-    <div class="eyebrow" style="justify-content:center">
-      <div class="eyebrow-line"></div>
-      <span class="eyebrow-text">Why Mojo Digital</span>
-      <div class="eyebrow-line"></div>
-    </div>
-    <h2 class="sec-title">EVERYTHING YOUR<br><span>BUSINESS NEEDS</span></h2>
-  </div>
-  <div class="why-grid reveal">
-    <div class="why-card">
-      <span class="why-icon">🌐</span>
-      <div class="why-title">Web Design & Development</div>
-      <div class="why-desc">Custom websites built to convert — fast, mobile-first, and designed to make your brand look world-class from day one.</div>
-    </div>
-    <div class="why-card">
-      <span class="why-icon">📅</span>
-      <div class="why-title">Smart Booking Systems</div>
-      <div class="why-desc">Online booking, automated confirmations, reminders and follow-ups. Your calendar fills itself while you focus on the work.</div>
-    </div>
-    <div class="why-card">
-      <span class="why-icon">🤖</span>
-      <div class="why-title">AI & Automation</div>
-      <div class="why-desc">AI chatbots, automated follow-ups, review collection, lead nurturing — your business runs smarter around the clock.</div>
-    </div>
-    <div class="why-card">
-      <span class="why-icon">📣</span>
-      <div class="why-title">Marketing & Growth</div>
-      <div class="why-desc">Google Ads, SEO, social media content and reputation management — we drive traffic and turn it into paying customers.</div>
-    </div>
-    <div class="why-card">
-      <span class="why-icon">✦</span>
-      <div class="why-title">Branding & Identity</div>
-      <div class="why-desc">Logos, brand guidelines, AI photography and full visual identity — we make your business impossible to ignore.</div>
-    </div>
-    <div class="why-card">
-      <span class="why-icon">🛍️</span>
-      <div class="why-title">Online Stores & Merch</div>
-      <div class="why-desc">Branded merch stores, e-commerce, and digital products — turn your brand into a revenue stream beyond your core service.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================== GUARANTEE ======================== -->
+<!-- ======================== DASHBOARD ======================== -->
 
 <section class="guarantee">
   <div class="reveal">
@@ -1601,6 +1496,225 @@ margin-bottom: 2px;
     </div>
   </div>
   <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="btn-orange reveal">Get Your Dashboard <span>→</span></a>
+</section>
+
+<!-- ======================== PACKAGES ======================== -->
+
+<section class="sec sec-alt" id="packages">
+  <div class="reveal">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Pricing</span></div>
+    <h2 class="sec-title">FIND YOUR <span>FIT</span></h2>
+    <p class="sec-sub">Every plan includes a dedicated client dashboard so you can manage bookings, leads, messages and reviews from one place — on desktop or mobile.</p>
+  </div>
+
+  <div class="pkg-wrap reveal">
+    <div class="pkg-row">
+
+```
+  <div class="pkg-card">
+    <span class="pkg-emoji">🥉</span>
+    <div class="pkg-name">Starter</div>
+    <div class="pkg-price">$499</div>
+    <div class="pkg-mo">+ $147/month</div>
+    <div class="pkg-line"></div>
+    <ul class="pkg-feats">
+      <li>Custom 5-page website</li>
+      <li>Mobile responsive design</li>
+      <li>Basic SEO setup</li>
+      <li>Contact form + maps</li>
+      <li>Social media links</li>
+      <li>Monthly hosting included</li>
+      <li>Email support</li>
+    </ul>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e476c1b7344f595a5744" target="_blank" class="pkg-btn">Get Started</a>
+  </div>
+
+  <div class="pkg-card featured">
+    <div class="pkg-tag">⭐ Most Popular</div>
+    <span class="pkg-emoji">🥇</span>
+    <div class="pkg-name">Growth</div>
+    <div class="pkg-price">$799</div>
+    <div class="pkg-mo">+ $247/month</div>
+    <div class="pkg-line"></div>
+    <ul class="pkg-feats">
+      <li>Everything in Starter</li>
+      <li>Online booking 24/7</li>
+      <li>Confirmation SMS + email</li>
+      <li>24hr reminder texts</li>
+      <li>No-show follow ups</li>
+      <li>Review request automation</li>
+      <li>Lead capture + follow-up</li>
+      <li>CRM pipeline</li>
+      <li>Instagram booking link</li>
+    </ul>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="pkg-btn">Get Started</a>
+  </div>
+
+  <div class="pkg-card">
+    <span class="pkg-emoji">💎</span>
+    <div class="pkg-name">Pro</div>
+    <div class="pkg-price">$1,299</div>
+    <div class="pkg-mo">+ $347/month</div>
+    <div class="pkg-line"></div>
+    <ul class="pkg-feats">
+      <li>Everything in Growth</li>
+      <li>AI chatbot 24/7</li>
+      <li>AI phone answering</li>
+      <li>Deposit collection</li>
+      <li>Custom email sequences</li>
+      <li>AI review responses</li>
+      <li>Blog + domain setup</li>
+      <li>Strategy call included</li>
+    </ul>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e4b9c1b7344f595a5745" target="_blank" class="pkg-btn">Get Started</a>
+  </div>
+
+  <div class="pkg-card">
+    <span class="pkg-emoji">🏢</span>
+    <div class="pkg-name">Enterprise</div>
+    <div class="pkg-price">$1,999</div>
+    <div class="pkg-mo">+ $697/month</div>
+    <div class="pkg-line"></div>
+    <ul class="pkg-feats">
+      <li>Everything in Pro</li>
+      <li>Monthly SEO management</li>
+      <li>Meta + Google Ads managed</li>
+      <li>Ad spend included in monthly</li>
+      <li>8 social posts/month</li>
+      <li>Weekly strategy calls</li>
+      <li>Advanced analytics</li>
+      <li>Dedicated account manager</li>
+    </ul>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e4def35c540e14833189" target="_blank" class="pkg-btn">Get Started</a>
+  </div>
+
+  <div class="pkg-card">
+    <span class="pkg-emoji">👑</span>
+    <div class="pkg-name">Ultimate</div>
+    <div class="pkg-price">$3,999</div>
+    <div class="pkg-mo">+ $1,097/month</div>
+    <div class="pkg-line"></div>
+    <ul class="pkg-feats">
+      <li>Everything in Enterprise</li>
+      <li>Full brand identity</li>
+      <li>AI brand photography</li>
+      <li>Increased ad spend included</li>
+      <li>Starter merch store included</li>
+      <li>20 products to start</li>
+      <li>Unlimited pages</li>
+      <li>Bi-weekly strategy calls</li>
+      <li>Upgrade your store anytime</li>
+    </ul>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e57bf35c540e1483318b" target="_blank" class="pkg-btn">Get Started</a>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <div class="reveal" style="margin-top:24px;text-align:center;padding:20px;border-top:1px solid var(--border2)">
+    <p style="font-size:13px;color:var(--gray)">Store systems and add-ons available at checkout — <span style="color:var(--gold)">select your package to get started.</span></p>
+  </div>
+</section>
+
+<!-- ======================== STORE PACKAGES ======================== -->
+
+<section class="sec" id="stores">
+  <div class="reveal">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Online Store Systems</span></div>
+    <h2 class="sec-title">STORE & BRAND <span>PACKAGES</span></h2>
+    <p style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px">For when the brand IS the business.</p>
+    <p class="sec-sub">Want to sell online? We build fully branded store systems with on-demand fulfillment, your own domain, and a complete client dashboard — all white labeled under your brand.</p>
+  </div>
+
+  <div class="pkg-wrap reveal" style="margin-top:56px">
+    <div class="pkg-row">
+
+```
+  <div class="pkg-card">
+    <span class="pkg-emoji">🛍️</span>
+    <div class="pkg-name">Starter Store</div>
+    <div class="pkg-price">$499</div>
+    <div class="pkg-mo">+ $97/month</div>
+    <div class="pkg-line"></div>
+    <ul class="pkg-feats">
+      <li>Fully branded online store</li>
+      <li>Custom domain included</li>
+      <li>Up to 10 products</li>
+      <li>On-demand fulfillment setup</li>
+      <li>Mobile responsive design</li>
+      <li>Client dashboard access</li>
+      <li>Email support</li>
+    </ul>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="pkg-btn">Get Started</a>
+  </div>
+
+  <div class="pkg-card featured">
+    <div class="pkg-tag">⭐ Most Popular</div>
+    <span class="pkg-emoji">✦</span>
+    <div class="pkg-name">Brand Store</div>
+    <div class="pkg-price">$999</div>
+    <div class="pkg-mo">+ $147/month</div>
+    <div class="pkg-line"></div>
+    <ul class="pkg-feats">
+      <li>Everything in Starter Store</li>
+      <li>Custom logo + brand identity</li>
+      <li>Brand color palette + fonts</li>
+      <li>Up to 25 products</li>
+      <li>Product photography guidance</li>
+      <li>Social media kit included</li>
+      <li>Launch strategy session</li>
+    </ul>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="pkg-btn">Get Started</a>
+  </div>
+
+  <div class="pkg-card">
+    <span class="pkg-emoji">📈</span>
+    <div class="pkg-name">Growth Store</div>
+    <div class="pkg-price">$1,799</div>
+    <div class="pkg-mo">+ $397/month</div>
+    <div class="pkg-line"></div>
+    <ul class="pkg-feats">
+      <li>Everything in Brand Store</li>
+      <li>AI chatbot on your store</li>
+      <li>Abandoned cart automation</li>
+      <li>Email + SMS marketing flows</li>
+      <li>Review collection system</li>
+      <li>Meta + Google Ads managed</li>
+      <li>Ad spend included in monthly</li>
+      <li>Monthly performance report</li>
+    </ul>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="pkg-btn">Get Started</a>
+  </div>
+
+  <div class="pkg-card">
+    <span class="pkg-emoji">👑</span>
+    <div class="pkg-name">Full Brand System</div>
+    <div class="pkg-price">$2,999</div>
+    <div class="pkg-mo">+ $597/month</div>
+    <div class="pkg-line"></div>
+    <ul class="pkg-feats">
+      <li>Everything in Growth Store</li>
+      <li>Full brand identity system</li>
+      <li>AI brand photography</li>
+      <li>Meta + Google Ads managed</li>
+      <li>Ad spend included in monthly</li>
+      <li>8 social posts/month</li>
+      <li>Unlimited products</li>
+      <li>Dedicated account manager</li>
+      <li>Ultimate clients upgrade for $999</li>
+    </ul>
+    <a href="https://link.fastpaydirect.com/payment-link/69b9e2baf35c540e14833184" target="_blank" class="pkg-btn">Get Started</a>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- Add-on note -->
+
 </section>
 
 <!-- ======================== CTA ======================== -->
