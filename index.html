@@ -13,16 +13,14 @@
 a{color:inherit;text-decoration:none}
 html{scroll-behavior:smooth;overflow-x:hidden;background:#0A0A0A;color:#F0EDE8}
 body{font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-
-/* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.95);border-bottom:1px solid rgba(201,168,76,0.08);backdrop-filter:blur(20px)}
-.nav-logo{font-family:‘Bebas Neue’,sans-serif;font-size:24px;letter-spacing:4px;color:#F0EDE8}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:4px;color:#F0EDE8}
 .nav-logo span{color:#C9A84C}
 .nav-links{display:flex;gap:32px;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
 .nav-links a{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#888;transition:color .25s;white-space:nowrap}
 .nav-links a:hover{color:#F0EDE8}
 .nav-demo-wrap{position:relative}
-.nav-demo-btn{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#888;cursor:pointer;display:flex;align-items:center;gap:6px;transition:color .25s;background:none;border:none;font-family:‘DM Sans’,sans-serif}
+.nav-demo-btn{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#888;cursor:pointer;display:flex;align-items:center;gap:6px;transition:color .25s;background:none;border:none;font-family:'DM Sans',sans-serif}
 .nav-demo-btn:hover{color:#F0EDE8}
 .nav-demo-dropdown{position:absolute;top:100%;right:0;margin-top:12px;background:#111111;border:1px solid rgba(201,168,76,0.12);min-width:220px;display:none;z-index:100}
 .nav-demo-wrap:hover .nav-demo-dropdown{display:block}
@@ -36,19 +34,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;padding:0 6%;dis
 .hamburger span{width:24px;height:1.5px;background:#F0EDE8;display:block;transition:all .3s}
 .mob-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.98);z-index:550;flex-direction:column;align-items:center;justify-content:center;gap:8px}
 .mob-menu.open{display:flex}
-.mob-menu a{font-family:‘Bebas Neue’,sans-serif;font-size:36px;letter-spacing:4px;color:#888;padding:10px 0;transition:color .2s;text-align:center}
+.mob-menu a{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:4px;color:#888;padding:10px 0;transition:color .2s;text-align:center}
 .mob-menu a:hover{color:#F0EDE8}
 .mob-menu .mob-cta{background:#C9A84C;color:#0A0A0A;padding:14px 48px;margin-top:16px;font-size:20px}
-
-/* ── HERO ── */
 .hero{min-height:100vh;padding:calc(72px + 100px) 6% 100px;display:flex;align-items:center;position:relative;overflow:hidden;background:#0A0A0A}
-.hero::before{content:’’;position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 50% 0%,rgba(201,168,76,0.06) 0%,transparent 60%);pointer-events:none}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 50% 0%,rgba(201,168,76,0.06) 0%,transparent 60%);pointer-events:none}
 .hero-inner{display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;width:100%}
 .hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);padding:8px 18px;margin-bottom:28px;opacity:0;animation:fadeUp .6s .1s forwards}
 .hero-badge-dot{width:7px;height:7px;border-radius:50%;background:#C9A84C;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .hero-badge-text{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#C9A84C}
-.hero-title{font-family:‘Bebas Neue’,sans-serif;font-size:clamp(56px,7.5vw,100px);line-height:.88;letter-spacing:3px;color:#F0EDE8;margin-bottom:24px;opacity:0;animation:fadeUp .6s .2s forwards}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,7.5vw,100px);line-height:.88;letter-spacing:3px;color:#F0EDE8;margin-bottom:24px;opacity:0;animation:fadeUp .6s .2s forwards}
 .hero-title span{color:#C9A84C;display:block}
 .hero-desc{font-size:17px;font-weight:300;color:#B8B8B8;line-height:1.85;max-width:520px;margin-bottom:40px;opacity:0;animation:fadeUp .6s .3s forwards}
 .hero-desc strong{color:#F0EDE8;font-weight:400}
@@ -57,19 +53,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;padding:0 6%;dis
 .btn-primary:hover{background:#E8C96A;transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,168,76,.3)}
 .btn-secondary{background:transparent;color:#F0EDE8;padding:16px 32px;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(240,237,232,0.2);display:inline-flex;align-items:center;gap:10px;transition:all .3s}
 .btn-secondary:hover{border-color:#C9A84C;color:#C9A84C}
-
-/* PHONE MOCKUP */
 .hero-phone{opacity:0;animation:fadeUp .7s .5s forwards}
 .phone-wrap{background:#111111;border:1px solid rgba(201,168,76,0.15);border-radius:24px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.6)}
 .phone-header{background:#1A1A1A;padding:16px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(201,168,76,0.08)}
-.phone-avatar{width:36px;height:36px;border-radius:50%;background:#C9A84C;display:flex;align-items:center;justify-content:center;font-family:‘Bebas Neue’,sans-serif;font-size:18px;color:#0A0A0A;flex-shrink:0}
+.phone-avatar{width:36px;height:36px;border-radius:50%;background:#C9A84C;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#0A0A0A;flex-shrink:0}
 .phone-biz{font-size:13px;font-weight:600;color:#F0EDE8}
 .phone-rating{font-size:11px;color:#888;margin-top:2px}
 .phone-booking{padding:20px}
 .phone-booking-title{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;margin-bottom:14px}
 .phone-service{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#1A1A1A;margin-bottom:8px;font-size:13px}
 .phone-service-name{color:#F0EDE8;font-weight:500}
-.phone-service-price{color:#C9A84C;font-family:‘Bebas Neue’,sans-serif;font-size:18px;letter-spacing:1px}
+.phone-service-price{color:#C9A84C;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px}
 .phone-divider{height:1px;background:rgba(201,168,76,0.08);margin:16px 0}
 .phone-notifs{padding:0 20px 20px}
 .phone-notif{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid rgba(201,168,76,0.06)}
@@ -80,52 +74,40 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;padding:0 6%;dis
 .ni-blue{background:rgba(59,130,246,0.15)}
 .notif-text{font-size:12px;color:#888;line-height:1.5}
 .notif-text strong{color:#F0EDE8;font-weight:500;display:block;margin-bottom:2px}
-
-/* ── TICKER ── */
 .ticker{background:#C9A84C;padding:13px 0;overflow:hidden;white-space:nowrap}
 .ticker-track{display:inline-flex;animation:tick 28s linear infinite}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.ti{font-family:‘Bebas Neue’,sans-serif;font-size:13px;letter-spacing:4px;color:rgba(10,10,10,0.75);padding:0 28px}
+.ti{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:4px;color:rgba(10,10,10,0.75);padding:0 28px}
 .ts{opacity:.4}
-
-/* ── STATS ── */
 .stats{background:#111111;border-bottom:1px solid rgba(201,168,76,0.08);padding:52px 6%;display:grid;grid-template-columns:repeat(4,1fr)}
 .stat{text-align:center;position:relative}
-.stat+.stat::before{content:’’;position:absolute;left:0;top:50%;transform:translateY(-50%);height:40px;width:1px;background:rgba(201,168,76,0.1)}
-.stat-num{font-family:‘Bebas Neue’,sans-serif;font-size:64px;color:#F0EDE8;line-height:1;letter-spacing:2px}
+.stat+.stat::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);height:40px;width:1px;background:rgba(201,168,76,0.1)}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:64px;color:#F0EDE8;line-height:1;letter-spacing:2px}
 .stat-num span{color:#C9A84C}
 .stat-lbl{font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:#888;margin-top:7px}
-
-/* ── SECTIONS ── */
 .sec{padding:100px 6%}
 .sec-dark{background:#111111}
 .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:18px}
 .ey-line{width:28px;height:1px;background:#C9A84C;flex-shrink:0}
 .ey-text{font-size:10px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:#C9A84C}
-.sec-title{font-family:‘Bebas Neue’,sans-serif;font-size:clamp(40px,5.5vw,72px);letter-spacing:3px;color:#F0EDE8;line-height:.92;margin-bottom:16px}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5.5vw,72px);letter-spacing:3px;color:#F0EDE8;line-height:.92;margin-bottom:16px}
 .sec-title span{color:#C9A84C}
 .sec-sub{font-size:15px;font-weight:300;color:#888;line-height:1.9;max-width:520px}
-
-/* ── SERVICES ── */
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.08);margin-top:60px}
 .svc{background:#0A0A0A;padding:44px 36px;transition:background .3s;position:relative;overflow:hidden}
-.svc::after{content:’’;position:absolute;bottom:0;left:0;width:0;height:2px;background:#C9A84C;transition:width .4s}
+.svc::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:#C9A84C;transition:width .4s}
 .svc:hover::after{width:100%}
 .svc:hover{background:#111111}
 .svc-icon{font-size:36px;margin-bottom:18px;display:block}
-.svc-name{font-family:‘Syne’,sans-serif;font-size:18px;font-weight:700;color:#F0EDE8;margin-bottom:10px}
+.svc-name{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#F0EDE8;margin-bottom:10px}
 .svc-desc{font-size:13px;color:#888;line-height:1.8}
-
-/* ── HOW IT WORKS ── */
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.08);margin-top:60px}
 .step{background:#0A0A0A;padding:44px 32px;transition:background .3s}
 .step:hover{background:#111111}
-.step-num{font-family:‘Bebas Neue’,sans-serif;font-size:64px;color:rgba(201,168,76,0.12);line-height:1;margin-bottom:14px;letter-spacing:2px}
+.step-num{font-family:'Bebas Neue',sans-serif;font-size:64px;color:rgba(201,168,76,0.12);line-height:1;margin-bottom:14px;letter-spacing:2px}
 .step-icon{font-size:32px;margin-bottom:16px;display:block}
-.step-title{font-family:‘Syne’,sans-serif;font-size:17px;font-weight:700;color:#F0EDE8;margin-bottom:10px}
+.step-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:#F0EDE8;margin-bottom:10px}
 .step-desc{font-size:13px;color:#888;line-height:1.8}
-
-/* ── AUTOMATIONS ── */
 .auto-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px}
 .auto-list{display:flex;flex-direction:column;gap:2px}
 .auto-item{display:flex;align-items:center;gap:20px;padding:20px 24px;background:#111111;border:1px solid rgba(201,168,76,0.06);cursor:pointer;transition:all .25s;border-left:2px solid transparent}
@@ -147,11 +129,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;padding:0 6%;dis
 .msg.in .bubble{background:#0A0A0A;color:#D4D4D4;border-bottom-left-radius:3px}
 .msg.out .bubble{background:#C9A84C;color:#0A0A0A;border-bottom-right-radius:3px;font-weight:500}
 .msg-time{font-size:9px;color:#555;padding:0 4px}
-
-/* ── DASHBOARD ── */
 .dash-wrap{background:#111111;border:1px solid rgba(201,168,76,0.12);margin-top:60px;overflow:hidden}
 .dash-header{background:#1A1A1A;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.08)}
-.dash-title{font-family:‘Bebas Neue’,sans-serif;font-size:18px;letter-spacing:3px;color:#F0EDE8}
+.dash-title{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;color:#F0EDE8}
 .dash-tabs{display:flex;gap:2px}
 .dash-tab{padding:6px 16px;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#888;background:#0A0A0A;cursor:pointer;transition:all .2s}
 .dash-tab.on{background:#C9A84C;color:#0A0A0A}
@@ -159,54 +139,46 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;padding:0 6%;dis
 .dash-card{background:#0A0A0A;border:1px solid rgba(201,168,76,0.06);padding:20px}
 .dash-card-icon{font-size:24px;margin-bottom:10px;display:block}
 .dash-card-label{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:6px}
-.dash-card-val{font-family:‘Bebas Neue’,sans-serif;font-size:36px;color:#F0EDE8;letter-spacing:2px;line-height:1}
+.dash-card-val{font-family:'Bebas Neue',sans-serif;font-size:36px;color:#F0EDE8;letter-spacing:2px;line-height:1}
 .dash-card-val span{color:#C9A84C}
-
-/* ── PACKAGES ── */
 .pkg-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.08);margin-top:60px}
 .pkg{background:#0A0A0A;padding:36px 28px;display:flex;flex-direction:column;transition:background .3s;position:relative}
 .pkg:hover{background:#111111}
 .pkg.featured{background:#111111;border-top:2px solid #C9A84C}
 .pkg-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:#C9A84C;color:#0A0A0A;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;white-space:nowrap}
 .pkg-icon{font-size:28px;margin-bottom:16px;display:block}
-.pkg-name{font-family:‘Bebas Neue’,sans-serif;font-size:24px;letter-spacing:3px;color:#F0EDE8;margin-bottom:4px}
-.pkg-price{font-family:‘Bebas Neue’,sans-serif;font-size:40px;color:#C9A84C;letter-spacing:2px;line-height:1;margin-bottom:4px}
+.pkg-name{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:3px;color:#F0EDE8;margin-bottom:4px}
+.pkg-price{font-family:'Bebas Neue',sans-serif;font-size:40px;color:#C9A84C;letter-spacing:2px;line-height:1;margin-bottom:4px}
 .pkg-mo{font-size:11px;color:#888;margin-bottom:20px;letter-spacing:.5px}
 .pkg-feats{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:28px;flex:1}
 .pkg-feats li{font-size:12px;color:#888;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
-.pkg-feats li::before{content:‘✓’;color:#C9A84C;font-weight:700;flex-shrink:0;margin-top:1px}
+.pkg-feats li::before{content:'✓';color:#C9A84C;font-weight:700;flex-shrink:0;margin-top:1px}
 .pkg-btn{background:transparent;color:#C9A84C;border:1px solid rgba(201,168,76,0.3);padding:12px 20px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;display:block;text-align:center;transition:all .25s;margin-top:auto}
 .pkg-btn:hover,.pkg.featured .pkg-btn{background:#C9A84C;color:#0A0A0A;border-color:#C9A84C}
-
-/* ── STORES ── */
 .store-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.08);margin-top:60px}
 .store-card{background:#0A0A0A;padding:32px 24px;display:flex;flex-direction:column;transition:background .3s;position:relative}
 .store-card:hover{background:#111111}
 .store-card.featured{background:#111111;border-top:2px solid #C9A84C}
 .store-icon{font-size:28px;margin-bottom:14px;display:block}
-.store-name{font-family:‘Bebas Neue’,sans-serif;font-size:20px;letter-spacing:2px;color:#F0EDE8;margin-bottom:4px}
-.store-price{font-family:‘Bebas Neue’,sans-serif;font-size:34px;color:#C9A84C;letter-spacing:2px;line-height:1;margin-bottom:4px}
+.store-name{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:#F0EDE8;margin-bottom:4px}
+.store-price{font-family:'Bebas Neue',sans-serif;font-size:34px;color:#C9A84C;letter-spacing:2px;line-height:1;margin-bottom:4px}
 .store-mo{font-size:11px;color:#888;margin-bottom:16px}
 .store-feats{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:24px;flex:1}
 .store-feats li{font-size:12px;color:#888;display:flex;align-items:flex-start;gap:8px;line-height:1.4}
-.store-feats li::before{content:‘✓’;color:#C9A84C;font-weight:700;flex-shrink:0}
+.store-feats li::before{content:'✓';color:#C9A84C;font-weight:700;flex-shrink:0}
 .store-btn{background:transparent;color:#C9A84C;border:1px solid rgba(201,168,76,0.3);padding:10px 16px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;display:block;text-align:center;transition:all .25s;margin-top:auto}
 .store-btn:hover,.store-card.featured .store-btn{background:#C9A84C;color:#0A0A0A;border-color:#C9A84C}
 .store-note{font-size:12px;color:#888;text-align:center;margin-top:20px;padding:16px;border:1px solid rgba(201,168,76,0.08);background:#111111}
-
-/* ── CTA ── */
 .cta{padding:100px 6%;text-align:center;background:#0A0A0A;position:relative;overflow:hidden}
-.cta::before{content:’’;position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(201,168,76,0.07) 0%,transparent 70%);pointer-events:none}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(201,168,76,0.07) 0%,transparent 70%);pointer-events:none}
 .cta-eyebrow{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:20px}
-.cta-title{font-family:‘Bebas Neue’,sans-serif;font-size:clamp(48px,7vw,88px);letter-spacing:3px;color:#F0EDE8;line-height:.9;margin-bottom:20px;position:relative;z-index:1}
+.cta-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,88px);letter-spacing:3px;color:#F0EDE8;line-height:.9;margin-bottom:20px;position:relative;z-index:1}
 .cta-title span{color:#C9A84C;display:block}
 .cta-sub{font-size:16px;color:#888;max-width:440px;margin:0 auto 44px;line-height:1.9;position:relative;z-index:1}
 .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
-
-/* ── FOOTER ── */
 footer{background:#060606;border-top:1px solid rgba(201,168,76,0.06);padding:72px 6% 32px}
 .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid rgba(201,168,76,0.06);margin-bottom:24px}
-.foot-logo{font-family:‘Bebas Neue’,sans-serif;font-size:24px;letter-spacing:4px;color:#F0EDE8;display:block;margin-bottom:3px}
+.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:4px;color:#F0EDE8;display:block;margin-bottom:3px}
 .foot-logo span{color:#C9A84C}
 .foot-sub{font-size:8px;letter-spacing:5px;text-transform:uppercase;color:#555;display:block;margin-bottom:14px}
 .foot-desc{font-size:13px;color:#555;line-height:1.8;max-width:220px}
@@ -224,49 +196,14 @@ footer{background:#060606;border-top:1px solid rgba(201,168,76,0.06);padding:72p
 .foot-copy{font-size:11px;color:#444}
 .foot-pow a{font-size:11px;color:#444;transition:color .25s}
 .foot-pow a:hover{color:#888}
-
-/* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .reveal{opacity:1;transform:none;transition:opacity .75s,transform .75s}
-
-/* ── RESPONSIVE ── */
-@media(max-width:1200px){
-.pkg-grid{grid-template-columns:repeat(3,1fr)}
-.store-grid{grid-template-columns:repeat(3,1fr)}
-.hero-inner{grid-template-columns:1fr;gap:60px}
-.hero-phone{max-width:420px;margin:0 auto}
-}
-@media(max-width:1000px){
-.nav-links{display:none}
-.steps-grid{grid-template-columns:1fr 1fr}
-.auto-grid{grid-template-columns:1fr;gap:40px}
-.foot-grid{grid-template-columns:1fr 1fr;gap:32px}
-.stats{grid-template-columns:repeat(2,1fr)}
-.stat+.stat::before{display:none}
-.dash-body{grid-template-columns:1fr 1fr}
-}
-@media(max-width:640px){
-nav{padding:0 5%}
-.hamburger{display:flex}
-.sec{padding:68px 5%}
-.svc-grid{grid-template-columns:1fr}
-.steps-grid{grid-template-columns:1fr}
-.pkg-grid{grid-template-columns:1fr}
-.store-grid{grid-template-columns:1fr}
-.foot-grid{grid-template-columns:1fr}
-.foot-bottom{flex-direction:column;text-align:center}
-.cta-btns{flex-direction:column;align-items:center}
-.hero-btns{flex-direction:column;align-items:flex-start}
-.dash-body{grid-template-columns:1fr}
-.stats{padding:36px 5%}
-.stat-num{font-size:48px}
-}
+@media(max-width:1200px){.pkg-grid{grid-template-columns:repeat(3,1fr)}.store-grid{grid-template-columns:repeat(3,1fr)}.hero-inner{grid-template-columns:1fr;gap:60px}.hero-phone{max-width:420px;margin:0 auto}}
+@media(max-width:1000px){.nav-links{display:none}.steps-grid{grid-template-columns:1fr 1fr}.auto-grid{grid-template-columns:1fr;gap:40px}.foot-grid{grid-template-columns:1fr 1fr;gap:32px}.stats{grid-template-columns:repeat(2,1fr)}.stat+.stat::before{display:none}.dash-body{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){nav{padding:0 5%}.hamburger{display:flex}.sec{padding:68px 5%}.svc-grid{grid-template-columns:1fr}.steps-grid{grid-template-columns:1fr}.pkg-grid{grid-template-columns:1fr}.store-grid{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr}.foot-bottom{flex-direction:column;text-align:center}.cta-btns{flex-direction:column;align-items:center}.hero-btns{flex-direction:column;align-items:flex-start}.dash-body{grid-template-columns:1fr}.stats{padding:36px 5%}.stat-num{font-size:48px}}
 </style>
-
 </head>
 <body>
-
-<!-- NAV -->
 
 <nav>
   <a href="#" class="nav-logo">MOJO<span>DIGITAL</span></a>
@@ -293,8 +230,6 @@ nav{padding:0 5%}
   <div class="hamburger" id="ham"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- MOBILE MENU -->
-
 <div class="mob-menu" id="mob">
   <a href="#how" onclick="closeMob()">How It Works</a>
   <a href="#packages" onclick="closeMob()">Packages</a>
@@ -304,8 +239,6 @@ nav{padding:0 5%}
   <a href="https://mojonailsdemosite.vercel.app" target="_blank" onclick="closeMob()">💅 Nail Salon Demo</a>
   <a href="https://mojobuilder.vercel.app" target="_blank" onclick="closeMob()" class="mob-cta">Get Started →</a>
 </div>
-
-<!-- HERO -->
 
 <section class="hero" id="top">
   <div class="hero-inner">
@@ -336,25 +269,14 @@ nav{padding:0 5%}
         </div>
         <div class="phone-divider"></div>
         <div class="phone-notifs">
-          <div class="phone-notif">
-            <div class="notif-icon ni-green">✅</div>
-            <div class="notif-text"><strong>New Booking</strong>Marcus booked 3pm</div>
-          </div>
-          <div class="phone-notif">
-            <div class="notif-icon ni-gold">⭐</div>
-            <div class="notif-text"><strong>New Review</strong>"Best barber in town!"</div>
-          </div>
-          <div class="phone-notif">
-            <div class="notif-icon ni-blue">💰</div>
-            <div class="notif-text"><strong>Payment</strong>$45 from Jordan T.</div>
-          </div>
+          <div class="phone-notif"><div class="notif-icon ni-green">✅</div><div class="notif-text"><strong>New Booking</strong>Marcus booked 3pm</div></div>
+          <div class="phone-notif"><div class="notif-icon ni-gold">⭐</div><div class="notif-text"><strong>New Review</strong>"Best barber in town!"</div></div>
+          <div class="phone-notif"><div class="notif-icon ni-blue">💰</div><div class="notif-text"><strong>Payment</strong>$45 from Jordan T.</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- TICKER -->
 
 <div class="ticker">
   <div class="ticker-track">
@@ -375,16 +297,12 @@ nav{padding:0 5%}
   </div>
 </div>
 
-<!-- STATS -->
-
 <div class="stats reveal">
   <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Services Under One Roof</div></div>
   <div class="stat"><div class="stat-num">24<span>/7</span></div><div class="stat-lbl">Systems Running</div></div>
   <div class="stat"><div class="stat-num">5</div><div class="stat-lbl">Days to Go Live</div></div>
   <div class="stat"><div class="stat-num">100<span>%</span></div><div class="stat-lbl">Custom Built for You</div></div>
 </div>
-
-<!-- SERVICES -->
 
 <section class="sec" id="services">
   <div class="reveal">
@@ -401,8 +319,6 @@ nav{padding:0 5%}
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-
 <section class="sec sec-dark" id="how">
   <div class="reveal">
     <div class="eyebrow"><div class="ey-line"></div><span class="ey-text">The Process</span></div>
@@ -416,8 +332,6 @@ nav{padding:0 5%}
     <div class="step"><div class="step-num">04</div><span class="step-icon">🤖</span><div class="step-title">System Runs Itself</div><div class="step-desc">From day one your system works around the clock — booking, following up, collecting reviews, and growing your brand automatically.</div></div>
   </div>
 </section>
-
-<!-- AUTOMATIONS -->
 
 <section class="sec" id="automations">
   <div class="reveal">
@@ -449,8 +363,6 @@ nav{padding:0 5%}
   </div>
 </section>
 
-<!-- DASHBOARD -->
-
 <section class="sec sec-dark">
   <div class="reveal">
     <div class="eyebrow"><div class="ey-line"></div><span class="ey-text">Your Command Center</span></div>
@@ -478,7 +390,7 @@ nav{padding:0 5%}
   </div>
 </section>
 
-<!-- PACKAGES -->
+<!-- ── PACKAGES — UPDATED PRICING ── -->
 
 <section class="sec" id="packages">
   <div class="reveal">
@@ -508,7 +420,7 @@ nav{padding:0 5%}
       <span class="pkg-icon">🥇</span>
       <div class="pkg-name">Growth</div>
       <div class="pkg-price">$799</div>
-      <div class="pkg-mo">+ $247/month</div>
+      <div class="pkg-mo">+ $297/month</div>
       <ul class="pkg-feats">
         <li>Everything in Starter</li>
         <li>Online booking 24/7</li>
@@ -526,7 +438,7 @@ nav{padding:0 5%}
       <span class="pkg-icon">💎</span>
       <div class="pkg-name">Pro</div>
       <div class="pkg-price">$1,299</div>
-      <div class="pkg-mo">+ $347/month</div>
+      <div class="pkg-mo">+ $497/month</div>
       <ul class="pkg-feats">
         <li>Everything in Growth</li>
         <li>AI chatbot 24/7</li>
@@ -543,7 +455,7 @@ nav{padding:0 5%}
       <span class="pkg-icon">🏢</span>
       <div class="pkg-name">Enterprise</div>
       <div class="pkg-price">$1,999</div>
-      <div class="pkg-mo">+ $697/month</div>
+      <div class="pkg-mo">+ $997/month</div>
       <ul class="pkg-feats">
         <li>Everything in Pro</li>
         <li>Monthly SEO management</li>
@@ -560,7 +472,7 @@ nav{padding:0 5%}
       <span class="pkg-icon">👑</span>
       <div class="pkg-name">Ultimate</div>
       <div class="pkg-price">$3,999</div>
-      <div class="pkg-mo">+ $1,097/month</div>
+      <div class="pkg-mo">+ $1,497/month</div>
       <ul class="pkg-feats">
         <li>Everything in Enterprise</li>
         <li>Full brand identity</li>
@@ -577,7 +489,7 @@ nav{padding:0 5%}
   </div>
 </section>
 
-<!-- STORES -->
+<!-- ── STORES — UNCHANGED ── -->
 
 <section class="sec sec-dark" id="stores">
   <div class="reveal">
@@ -674,8 +586,6 @@ nav{padding:0 5%}
   <div class="store-note">Store add-ons available at checkout — select your package to get started.</div>
 </section>
 
-<!-- CTA -->
-
 <section class="cta">
   <div class="cta-eyebrow"><div class="ey-line"></div><span class="ey-text">Ready to grow?</span><div class="ey-line"></div></div>
   <h2 class="cta-title reveal">STOP LOSING<span>BOOKINGS.</span></h2>
@@ -685,8 +595,6 @@ nav{padding:0 5%}
     <a href="https://cleancutsdemo.vercel.app" target="_blank" class="btn-secondary">View Live Demo →</a>
   </div>
 </section>
-
-<!-- FOOTER -->
 
 <footer>
   <div class="foot-grid">
@@ -733,7 +641,6 @@ nav{padding:0 5%}
 </footer>
 
 <script>
-// Mobile menu
 const ham=document.getElementById('ham'),mob=document.getElementById('mob');
 ham.addEventListener('click',()=>{
   mob.classList.toggle('open');
@@ -748,16 +655,12 @@ function closeMob(){
   mob.classList.remove('open');
   ham.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity='';});
 }
-
-// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const t=document.querySelector(a.getAttribute('href'));
     if(t){e.preventDefault();closeMob();window.scrollTo({top:t.offsetTop-72,behavior:'smooth'});}
   });
 });
-
-// Auto tab switcher for dashboard
 const tabs=document.querySelectorAll('.dash-tab');
 let tabIdx=0;
 setInterval(()=>{
