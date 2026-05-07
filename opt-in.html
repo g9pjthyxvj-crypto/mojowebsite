@@ -32,7 +32,6 @@
       flex-direction: column;
     }
 
-    /* NAV */
     nav {
       display: flex;
       justify-content: space-between;
@@ -72,7 +71,6 @@
 
     .nav-cta:hover { background: var(--gold-dim); }
 
-    /* HERO */
     .hero {
       text-align: center;
       padding: 80px 24px 50px;
@@ -117,7 +115,6 @@
       line-height: 1.65;
     }
 
-    /* MAIN LAYOUT */
     .main {
       flex: 1;
       display: flex;
@@ -171,7 +168,6 @@
 
     .card-body { padding: 36px; }
 
-    /* FORM */
     .field { margin-bottom: 20px; }
 
     .field label {
@@ -200,7 +196,6 @@
     .field input:focus { border-color: var(--gold); }
     .field input::placeholder { color: #555; }
 
-    /* CONSENT BOX */
     .consent-box {
       background: #111;
       border: 1px solid var(--border);
@@ -272,7 +267,6 @@
       display: none;
     }
 
-    /* TERMS BLOCK */
     .terms-block {
       background: rgba(245, 200, 66, 0.05);
       border: 1px solid rgba(245, 200, 66, 0.15);
@@ -292,7 +286,6 @@
       text-decoration: none;
     }
 
-    /* SUBMIT */
     .submit-btn {
       width: 100%;
       background: var(--gold);
@@ -311,7 +304,6 @@
     .submit-btn:hover { background: var(--gold-dim); }
     .submit-btn:active { transform: scale(0.99); }
 
-    /* TRUST BADGES */
     .trust-badges {
       display: flex;
       justify-content: center;
@@ -332,7 +324,6 @@
 
     .badge-item span { font-size: 0.95rem; }
 
-    /* SUCCESS STATE */
     .success-state {
       display: none;
       text-align: center;
@@ -366,7 +357,6 @@
       line-height: 1.6;
     }
 
-    /* FOOTER */
     footer {
       border-top: 1px solid var(--border);
       padding: 28px 40px;
@@ -421,20 +411,17 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <a href="https://mojodigitalagency.com" class="nav-logo">MOJO<span>DIGITAL</span></a>
     <a href="https://mojobuilder.vercel.app" class="nav-cta">Get Started</a>
   </nav>
 
-  <!-- HERO -->
   <div class="hero">
     <div class="badge">📱 SMS Opt-In</div>
     <h1>Stay in the <em>Loop.</em></h1>
     <p>Sign up to receive SMS updates from Mojo Digital Agency — appointment confirmations, onboarding updates, and project status messages.</p>
   </div>
 
-  <!-- MAIN CARD -->
   <div class="main">
     <div class="card">
       <div class="card-header">
@@ -450,41 +437,40 @@
 
           <div class="field">
             <label for="fname">First Name</label>
-            <input type="text" id="fname" name="first_name" placeholder="Marcus" required />
+            <input type="text" id="fname" name="first_name" placeholder="Marcus" />
           </div>
 
           <div class="field">
             <label for="lname">Last Name</label>
-            <input type="text" id="lname" name="last_name" placeholder="Davis" required />
+            <input type="text" id="lname" name="last_name" placeholder="Davis" />
           </div>
 
           <div class="field">
             <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            <input type="email" id="email" name="email" placeholder="you@example.com" />
           </div>
 
           <div class="field">
             <label for="phone">Mobile Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="(831) 555-0100" required />
+            <input type="tel" id="phone" name="phone" placeholder="(831) 555-0100" />
           </div>
 
-          <!-- CONSENT CHECKBOX — REQUIRED FOR A2P -->
+          <!-- CONSENT CHECKBOX — NOT REQUIRED (CTIA compliant) -->
           <div class="consent-box">
             <label class="consent-checkbox">
-              <input type="checkbox" id="sms-consent" name="sms_consent" required />
+              <input type="checkbox" id="sms-consent" name="sms_consent" />
               <span class="consent-label">
-                <strong>I agree to receive SMS text messages from Mojo Digital Agency</strong> at the phone number provided above. Messages may include appointment confirmations, onboarding updates, and project status notifications. Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for assistance. View our <a href="https://mojodigitalagency.com/privacy.html" target="_blank">Privacy Policy</a> and <a href="https://mojodigitalagency.com/terms.html" target="_blank">Terms of Service</a>.
+                <strong>I agree to receive SMS text messages from Mojo Digital Agency</strong> at the phone number provided above. Messages may include appointment confirmations, onboarding updates, promotional offers, and project status notifications. Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for assistance. View our <a href="https://mojodigitalagency.com/privacy.html" target="_blank">Privacy Policy</a> and <a href="https://mojodigitalagency.com/terms.html" target="_blank">Terms of Service</a>.
               </span>
             </label>
-            <p class="consent-required" id="consent-error">⚠ You must agree to receive SMS messages to continue.</p>
+            <p class="consent-required" id="consent-error">⚠ You must check the box above to opt in to SMS messages.</p>
           </div>
 
-          <!-- ADDITIONAL TERMS -->
           <div class="terms-block">
             <p>
-              By checking the box above, you expressly consent to receive text messages from Mojo Digital Agency. 
-              Your phone number and SMS opt-in data will <strong style="color:#e8e8e8">never be sold, rented, or shared with third parties</strong> for any purpose. 
-              Consent is not required to purchase any service. 
+              By checking the box above, you expressly consent to receive text messages from Mojo Digital Agency.
+              Your phone number and SMS opt-in data will <strong style="color:#e8e8e8">never be sold, rented, or shared with third parties</strong> for any purpose.
+              Consent is not required to purchase any service.
               View our <a href="https://mojodigitalagency.com/privacy.html" target="_blank">Privacy Policy</a> and <a href="https://mojodigitalagency.com/terms.html" target="_blank">Terms of Service</a>.
             </p>
           </div>
@@ -494,14 +480,12 @@
         </form>
       </div>
 
-      <!-- SUCCESS STATE -->
       <div class="success-state" id="success-state">
         <div class="success-icon">✓</div>
         <h3>You're opted in!</h3>
         <p>Thanks — you'll receive a confirmation text shortly. Reply STOP at any time to unsubscribe.</p>
       </div>
 
-      <!-- TRUST BADGES -->
       <div class="trust-badges">
         <div class="badge-item"><span>🔒</span> Never sold or shared</div>
         <div class="badge-item"><span>📵</span> Reply STOP anytime</div>
@@ -510,7 +494,6 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <a href="https://mojodigitalagency.com" class="footer-logo">MOJODIGITAL</a>
     <div class="footer-links">
@@ -532,7 +515,6 @@
     form.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      // Validate consent checkbox
       if (!consentBox.checked) {
         consentError.style.display = 'block';
         consentBox.closest('.consent-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -540,8 +522,6 @@
       }
 
       consentError.style.display = 'none';
-
-      // Show success (GHL form submission would handle actual data)
       formBody.style.display = 'none';
       successState.style.display = 'block';
     });
