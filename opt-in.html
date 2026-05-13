@@ -459,7 +459,7 @@
           <div class="consent-box">
             <label class="consent-checkbox">
               <input type="checkbox" id="sms-consent" name="sms_consent" />
-              <span class="consent-label">
+              <span class="consent-label"><em style="font-style:normal;font-size:11px;color:#8b7fa8;display:block;margin-bottom:6px;">Optional — you can still use our services without opting in.</em>
                 By checking this box, I agree to receive SMS text messages from <strong>Mojo Digital Agency</strong> at the phone number provided. Message types include appointment confirmations, onboarding updates, promotional offers, and project status notifications. Message frequency varies. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to unsubscribe. Reply <strong>HELP</strong> for help. View our <a href="https://mojodigitalagency.com/privacy.html" target="_blank">Privacy Policy</a> and <a href="https://mojodigitalagency.com/terms.html" target="_blank">Terms of Service</a>.
               </span>
             </label>
@@ -482,8 +482,8 @@
 
       <div class="success-state" id="success-state">
         <div class="success-icon">✓</div>
-        <h3>You're opted in!</h3>
-        <p>Thanks — you'll receive a confirmation text shortly. Reply STOP at any time to unsubscribe.</p>
+        <h3 id="success-title">You're opted in!</h3>
+        <p id="success-msg">Thanks — you'll receive a confirmation text shortly. Reply STOP at any time to unsubscribe.</p>
       </div>
 
       <div class="trust-badges">
@@ -514,15 +514,17 @@
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-
-      if (!consentBox.checked) {
-        consentError.style.display = 'block';
-        consentBox.closest('.consent-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-
+      var optedIn = consentBox.checked;
       consentError.style.display = 'none';
       formBody.style.display = 'none';
+      // Show appropriate success message
+      if(optedIn){
+        document.getElementById('success-title').textContent = "You're opted in!";
+        document.getElementById('success-msg').textContent = "Thanks — you'll receive a confirmation text shortly. Reply STOP at any time to unsubscribe.";
+      } else {
+        document.getElementById('success-title').textContent = "Form submitted!";
+        document.getElementById('success-msg').textContent = "Thanks for reaching out. You have not opted in to SMS messages.";
+      }
       successState.style.display = 'block';
     });
 
