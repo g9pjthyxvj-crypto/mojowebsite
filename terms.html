@@ -1,59 +1,218 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Terms of Service — Mojo Digital Agency</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;background:#0A0A0A;color:#F0EDE8}
-body{font-family:'DM Sans',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
-a{color:#C9A84C;text-decoration:none}
-a:hover{text-decoration:underline}
-nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.95);border-bottom:1px solid rgba(201,168,76,0.08);backdrop-filter:blur(20px)}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:4px;color:#F0EDE8}
-.nav-logo span{color:#C9A84C}
-.nav-cta{background:#C9A84C;color:#0A0A0A;padding:10px 24px;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;transition:all .25s;white-space:nowrap}
-.nav-cta:hover{background:#E8C96A}
-.container{max-width:800px;margin:0 auto;padding:calc(72px + 80px) 6% 100px}
-.eyebrow{font-size:10px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:#C9A84C;margin-bottom:16px}
-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,64px);letter-spacing:3px;color:#F0EDE8;line-height:.92;margin-bottom:12px}
-.updated{font-size:12px;color:#555;margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid rgba(201,168,76,0.08)}
-h2{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:#F0EDE8;margin:40px 0 14px}
-p{font-size:15px;color:#B8B8B8;line-height:1.9;margin-bottom:16px}
-ul{margin:0 0 16px 20px}
-ul li{font-size:15px;color:#B8B8B8;line-height:1.9;margin-bottom:8px}
-ul li::marker{color:#C9A84C}
-.highlight{background:rgba(201,168,76,0.06);border-left:2px solid #C9A84C;padding:16px 20px;margin:24px 0;font-size:14px;color:#B8B8B8;line-height:1.8}
-.highlight strong{color:#F0EDE8}
-footer{background:#060606;border-top:1px solid rgba(201,168,76,0.06);padding:32px 6%;text-align:center}
-.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:4px;color:#F0EDE8;display:block;margin-bottom:8px}
-.foot-logo span{color:#C9A84C}
-.foot-links{display:flex;gap:24px;justify-content:center;margin:12px 0;flex-wrap:wrap}
-.foot-links a{font-size:12px;color:#555;transition:color .25s}
-.foot-links a:hover{color:#F0EDE8}
-.foot-copy{font-size:11px;color:#444;margin-top:8px}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #0a0a0a;
+  --white: #ffffff;
+  --gold: #f5c842;
+  --gold-dim: #c9a020;
+  --gray: #1a1a1a;
+  --gray-mid: #2c2c2c;
+  --gray-light: #aaaaaa;
+  --text: #e8e8e8;
+  --border: #2e2e2e;
+}
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--black);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+}
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  color: var(--white);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+.nav-cta {
+  background: var(--gold);
+  color: var(--black);
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  padding: 9px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--gold-dim); }
+.legal-hero {
+  text-align: center;
+  padding: 70px 24px 40px;
+  border-bottom: 1px solid var(--border);
+}
+.legal-badge {
+  display: inline-block;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.legal-hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.05;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+.legal-hero h1 span { color: var(--gold); }
+.legal-meta {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  color: var(--gray-light);
+}
+.legal-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+  flex: 1;
+}
+.legal-body h2 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  margin: 48px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.legal-body h2:first-child { margin-top: 0; }
+.legal-body p {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: #bbb;
+  margin-bottom: 14px;
+}
+.legal-body ul {
+  list-style: none;
+  margin: 0 0 16px 0;
+  padding: 0;
+}
+.legal-body ul li {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: #bbb;
+  padding: 5px 0 5px 20px;
+  position: relative;
+}
+.legal-body ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+.legal-body strong { color: var(--white); }
+.legal-body a { color: var(--gold); text-decoration: none; }
+.legal-body a:hover { text-decoration: underline; }
+
+/* SMS callout block — highlighted for compliance visibility */
+.sms-callout {
+  background: rgba(245, 200, 66, 0.05);
+  border: 1px solid rgba(245, 200, 66, 0.2);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.sms-callout p {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: #ccc;
+  margin: 0 0 8px 0;
+}
+.sms-callout p:last-child { margin: 0; }
+.sms-callout strong { color: var(--white); }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  text-decoration: none;
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  font-size: 0.8rem;
+  color: var(--gray-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-copy {
+  font-size: 0.75rem;
+  color: #555;
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+}
+@media (max-width: 600px) {
+  nav { padding: 16px 20px; }
+  .legal-hero { padding: 50px 20px 32px; }
+  footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+}
 </style>
 </head>
 <body>
 
 <nav>
   <a href="https://mojodigitalagency.com" class="nav-logo">MOJO<span>DIGITAL</span></a>
-  <a href="https://mojobuilder.vercel.app" target="_blank" class="nav-cta">Get Started</a>
+  <a href="https://mojobuilder.vercel.app" class="nav-cta">Get Started</a>
 </nav>
 
-<div class="container">
-  <div class="eyebrow">Legal</div>
-  <h1>TERMS OF<br>SERVICE</h1>
-  <div class="updated">Last updated: April 16, 2026 · Mojo Digital Agency · mojodigitalagency.com</div>
+<div class="legal-hero">
+  <div class="legal-badge">Legal</div>
+  <h1>TERMS OF <span>SERVICE</span></h1>
+  <p class="legal-meta">Last updated: May 13, 2026 · Mojo Digital Agency · mojodigitalagency.com</p>
+</div>
 
-  <div class="highlight">
-    Please read these Terms of Service carefully before using our services. By engaging Mojo Digital Agency, you agree to be bound by these terms.
-  </div>
+<div class="legal-body">
+
+  <p>Please read these Terms of Service carefully before using our services. By engaging Mojo Digital Agency, you agree to be bound by these terms.</p>
 
   <h2>1. Agreement to Terms</h2>
   <p>By accessing or using the services of Mojo Digital Agency ("Company," "we," "us," or "our"), you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use our services.</p>
@@ -112,17 +271,18 @@ footer{background:#060606;border-top:1px solid rgba(201,168,76,0.06);padding:32p
 
   <h2>7. SMS and Communication Consent</h2>
   <p>Mojo Digital Agency operates an SMS messaging program for clients and prospective clients. The following terms apply to all SMS communications:</p>
-  <ul>
-    <li><strong>Program Description:</strong> By opting in, you may receive SMS messages from Mojo Digital Agency including appointment confirmations, project updates, promotional offers, and follow-up communications.</li>
-    <li><strong>Opt-In:</strong> You must affirmatively opt in by checking the SMS consent checkbox on our forms. Consent is never required as a condition of purchasing our services.</li>
-    <li><strong>Opt-Out:</strong> Reply <strong>STOP</strong> at any time to unsubscribe. You will receive one confirmation message and no further SMS will be sent.</li>
-    <li><strong>Help:</strong> Reply <strong>HELP</strong> for assistance or contact us at hello@mojodigitalagency.com.</li>
-    <li><strong>Message Frequency:</strong> Message frequency varies based on project stage and your engagement with our services.</li>
-    <li><strong>Message &amp; Data Rates:</strong> Standard message and data rates may apply depending on your mobile carrier plan.</li>
-    <li><strong>Carrier Liability:</strong> Carriers are not liable for delayed or undelivered messages. Delivery is subject to effective transmission by your carrier.</li>
-    <li><strong>Age Restriction:</strong> You must be 18 years of age or older to opt in to SMS communications. By opting in, you confirm you meet this requirement.</li>
-    <li><strong>Data Privacy:</strong> Your phone number and SMS consent data will not be sold or shared with third parties for marketing purposes. See our <a href="/privacy.html">Privacy Policy</a> for full details.</li>
-  </ul>
+
+  <div class="sms-callout">
+    <p><strong>Program Description:</strong> By opting in, you may receive SMS messages from Mojo Digital Agency including appointment confirmations, project updates, and onboarding notifications.</p>
+    <p><strong>Opt-In:</strong> You must affirmatively opt in by checking the SMS consent checkbox on our opt-in form. Consent is <strong>never required</strong> as a condition of purchasing or using our services. You may use all Mojo Digital Agency services without opting in to SMS.</p>
+    <p><strong>Opt-Out:</strong> Reply <strong>STOP</strong> at any time to unsubscribe. You will receive one confirmation message and no further SMS will be sent.</p>
+    <p><strong>Help:</strong> Reply <strong>HELP</strong> for assistance or contact us at <a href="mailto:hello@mojodigitalagency.com">hello@mojodigitalagency.com</a>.</p>
+    <p><strong>Message Frequency:</strong> Message frequency varies based on project stage and your engagement with our services.</p>
+    <p><strong>Message &amp; Data Rates:</strong> Standard message and data rates may apply depending on your mobile carrier plan.</p>
+    <p><strong>Carrier Liability:</strong> Carriers are not liable for delayed or undelivered messages. Delivery is subject to effective transmission by your carrier.</p>
+    <p><strong>Age Restriction:</strong> You must be 18 years of age or older to opt in to SMS communications. By opting in, you confirm you meet this requirement.</p>
+    <p><strong>Data Privacy:</strong> Your phone number and SMS consent data will <strong>never be sold, rented, leased, or shared with any third parties or affiliates</strong> for any purpose whatsoever. See our <a href="https://mojodigitalagency.com/privacy.html">Privacy Policy</a> for full details.</p>
+  </div>
 
   <h2>8. Third-Party Services</h2>
   <p>Our services may involve the use of third-party platforms including but not limited to GoHighLevel, Stripe, Google, Meta, and others. Your use of these platforms is subject to their respective terms of service and privacy policies. Mojo Digital Agency is not responsible for the actions, policies, or availability of third-party services.</p>
@@ -144,7 +304,7 @@ footer{background:#060606;border-top:1px solid rgba(201,168,76,0.06);padding:32p
   </ul>
 
   <h2>12. Governing Law</h2>
-  <p>These Terms of Service shall be governed by and construed in accordance with the laws of the State of Nevada. Any disputes arising under these terms shall be resolved in the appropriate courts of Nevada.</p>
+  <p>These Terms of Service shall be governed by and construed in accordance with the laws of the State of <strong>California</strong>. Any disputes arising under these terms shall be resolved in the appropriate courts of California. Our principal place of business is located at 3771 Vista Drive, Soquel, CA 95073.</p>
 
   <h2>13. Changes to Terms</h2>
   <p>We reserve the right to update these Terms of Service at any time. We will notify existing clients of significant changes via email. Continued use of our services after changes take effect constitutes acceptance of the updated terms.</p>
@@ -154,20 +314,20 @@ footer{background:#060606;border-top:1px solid rgba(201,168,76,0.06);padding:32p
   <ul>
     <li>Email: <a href="mailto:hello@mojodigitalagency.com">hello@mojodigitalagency.com</a></li>
     <li>Phone: <a href="tel:8315664767">(831) 566-4767</a></li>
-    <li>Website: <a href="https://mojodigitalagency.com" target="_blank">mojodigitalagency.com</a></li>
+    <li>Website: <a href="https://mojodigitalagency.com">mojodigitalagency.com</a></li>
   </ul>
 
 </div>
 
 <footer>
-  <a href="https://mojodigitalagency.com" class="foot-logo">MOJO<span>DIGITAL</span></a>
-  <div class="foot-links">
+  <a href="https://mojodigitalagency.com" class="footer-logo">MOJODIGITAL</a>
+  <div class="footer-links">
     <a href="https://mojodigitalagency.com">Home</a>
-    <a href="/privacy.html">Privacy Policy</a>
-    <a href="/terms.html">Terms of Service</a>
+    <a href="https://mojodigitalagency.com/privacy.html">Privacy Policy</a>
+    <a href="https://mojodigitalagency.com/terms.html">Terms of Service</a>
     <a href="mailto:hello@mojodigitalagency.com">Contact</a>
   </div>
-  <div class="foot-copy">© 2026 Mojo Digital Agency · All rights reserved.</div>
+  <p class="footer-copy">© 2026 Mojo Digital Agency · All rights reserved.</p>
 </footer>
 
 </body>
