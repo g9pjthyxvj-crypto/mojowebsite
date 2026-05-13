@@ -1,545 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SMS Opt-In — Mojo Digital Agency</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SMS Opt-In — Mojo Digital Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #0a0a0a;
+  --white: #ffffff;
+  --gold: #f5c842;
+  --gold-dim: #c9a020;
+  --gray: #1a1a1a;
+  --gray-mid: #2c2c2c;
+  --gray-light: #aaaaaa;
+  --text: #e8e8e8;
+  --border: #2e2e2e;
+}
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--black);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+}
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  color: var(--white);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+.nav-cta {
+  background: var(--gold);
+  color: var(--black);
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  padding: 9px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--gold-dim); }
+.hero {
+  text-align: center;
+  padding: 80px 24px 50px;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 200, 66, 0.1);
+  border: 1px solid rgba(245, 200, 66, 0.3);
+  color: var(--gold);
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  line-height: 1.05;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
+.hero p {
+  font-size: 1rem;
+  color: var(--gray-light);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 0 24px 80px;
+}
+.card {
+  background: var(--gray);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 560px;
+  overflow: hidden;
+}
+.card-header {
+  background: linear-gradient(135deg, #161616 0%, #1e1e1e 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.card-header-icon {
+  width: 42px;
+  height: 42px;
+  background: var(--gold);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.card-header-text h2 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+.card-header-text p {
+  font-size: 0.8rem;
+  color: var(--gray-light);
+  margin-top: 2px;
+}
+.card-body { padding: 36px; }
+.field { margin-bottom: 20px; }
+.field label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--gray-light);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.field input {
+  width: 100%;
+  background: #111;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 13px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.field input:focus { border-color: var(--gold); }
+.field input::placeholder { color: #555; }
 
-    :root {
-      --black: #0a0a0a;
-      --white: #ffffff;
-      --gold: #f5c842;
-      --gold-dim: #c9a020;
-      --gray: #1a1a1a;
-      --gray-mid: #2c2c2c;
-      --gray-light: #aaaaaa;
-      --text: #e8e8e8;
-      --border: #2e2e2e;
-    }
+/* ── CONSENT BOX ── */
+.consent-box {
+  background: #111;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 24px 0;
+}
 
-    html { scroll-behavior: smooth; }
+/* Checkbox row — FIRST inside consent box per CTIA */
+.consent-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+.consent-checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border: 2px solid #444;
+  border-radius: 5px;
+  background: #0a0a0a;
+  cursor: pointer;
+  margin-top: 2px;
+  transition: all 0.2s;
+  position: relative;
+}
+.consent-checkbox input[type="checkbox"]:checked {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.consent-checkbox input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 8px;
+  height: 12px;
+  border: 2px solid #000;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+.consent-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--white);
+}
+.consent-label .optional-note {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--gray-light);
+  margin-top: 3px;
+}
 
-    body {
-      background-color: var(--black);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+/* Disclosure text — appears directly after checkbox */
+.consent-disclosure {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: #bbb;
+  border-top: 1px solid #222;
+  padding-top: 14px;
+}
+.consent-disclosure a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 500;
+}
+.consent-disclosure a:hover { text-decoration: underline; }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      background: rgba(10,10,10,0.95);
-      backdrop-filter: blur(12px);
-      z-index: 100;
-    }
+/* Standalone compliance lines */
+.compliance-lines {
+  background: #0d0d0d;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+}
+.compliance-lines p {
+  font-size: 0.78rem;
+  color: #999;
+  line-height: 1.9;
+  margin: 0;
+}
+.compliance-lines strong { color: #e8e8e8; }
 
-    .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: 0.12em;
-      color: var(--white);
-      text-decoration: none;
-    }
-
-    .nav-logo span { color: var(--gold); }
-
-    .nav-cta {
-      background: var(--gold);
-      color: var(--black);
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      padding: 9px 20px;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
-    .nav-cta:hover { background: var(--gold-dim); }
-
-    .hero {
-      text-align: center;
-      padding: 80px 24px 50px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(245, 200, 66, 0.1);
-      border: 1px solid rgba(245, 200, 66, 0.3);
-      color: var(--gold);
-      font-family: 'Syne', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      padding: 6px 16px;
-      border-radius: 100px;
-      margin-bottom: 28px;
-    }
-
-    .hero h1 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(2.2rem, 6vw, 3.8rem);
-      line-height: 1.05;
-      color: var(--white);
-      letter-spacing: -0.02em;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 em {
-      font-style: normal;
-      color: var(--gold);
-    }
-
-    .hero p {
-      font-size: 1rem;
-      color: var(--gray-light);
-      max-width: 480px;
-      margin: 0 auto;
-      line-height: 1.65;
-    }
-
-    .main {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      padding: 0 24px 80px;
-    }
-
-    .card {
-      background: var(--gray);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      width: 100%;
-      max-width: 560px;
-      overflow: hidden;
-    }
-
-    .card-header {
-      background: linear-gradient(135deg, #161616 0%, #1e1e1e 100%);
-      border-bottom: 1px solid var(--border);
-      padding: 28px 36px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .card-header-icon {
-      width: 42px;
-      height: 42px;
-      background: var(--gold);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-
-    .card-header-text h2 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--white);
-      letter-spacing: 0.02em;
-    }
-
-    .card-header-text p {
-      font-size: 0.8rem;
-      color: var(--gray-light);
-      margin-top: 2px;
-    }
-
-    .card-body { padding: 36px; }
-
-    .field { margin-bottom: 20px; }
-
-    .field label {
-      display: block;
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--gray-light);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .field input {
-      width: 100%;
-      background: #111;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 13px 16px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      color: var(--white);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .field input:focus { border-color: var(--gold); }
-    .field input::placeholder { color: #555; }
-
-    .consent-box {
-      background: #111;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px;
-      margin: 24px 0;
-    }
-
-    .consent-checkbox {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      cursor: pointer;
-    }
-
-    .consent-checkbox input[type="checkbox"] {
-      appearance: none;
-      -webkit-appearance: none;
-      width: 20px;
-      height: 20px;
-      min-width: 20px;
-      border: 2px solid #444;
-      border-radius: 5px;
-      background: #0a0a0a;
-      cursor: pointer;
-      margin-top: 1px;
-      transition: all 0.2s;
-      position: relative;
-    }
-
-    .consent-checkbox input[type="checkbox"]:checked {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
-
-    .consent-checkbox input[type="checkbox"]:checked::after {
-      content: '';
-      position: absolute;
-      left: 4px;
-      top: 1px;
-      width: 8px;
-      height: 12px;
-      border: 2px solid #000;
-      border-top: none;
-      border-left: none;
-      transform: rotate(45deg);
-    }
-
-    .consent-label {
-      font-size: 0.85rem;
-      line-height: 1.6;
-      color: #ccc;
-    }
-
-    .consent-label strong { color: var(--white); }
-
-    .consent-label a {
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .consent-label a:hover { text-decoration: underline; }
-
-    .consent-required {
-      font-size: 0.72rem;
-      color: #e05555;
-      margin-top: 10px;
-      display: none;
-    }
-
-    .terms-block {
-      background: rgba(245, 200, 66, 0.05);
-      border: 1px solid rgba(245, 200, 66, 0.15);
-      border-radius: 8px;
-      padding: 14px 16px;
-      margin-bottom: 24px;
-    }
-
-    .terms-block p {
-      font-size: 0.75rem;
-      color: #999;
-      line-height: 1.6;
-    }
-
-    .terms-block a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-
-    .submit-btn {
-      width: 100%;
-      background: var(--gold);
-      color: var(--black);
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      padding: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.1s;
-    }
-
-    .submit-btn:hover { background: var(--gold-dim); }
-    .submit-btn:active { transform: scale(0.99); }
-
-    .trust-badges {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      padding: 0 36px 36px;
-      border-top: 1px solid var(--border);
-      padding-top: 24px;
-    }
-
-    .badge-item {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 0.75rem;
-      color: var(--gray-light);
-    }
-
-    .badge-item span { font-size: 0.95rem; }
-
-    .success-state {
-      display: none;
-      text-align: center;
-      padding: 60px 36px;
-    }
-
-    .success-icon {
-      width: 64px;
-      height: 64px;
-      background: rgba(245, 200, 66, 0.15);
-      border: 2px solid var(--gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      margin: 0 auto 20px;
-    }
-
-    .success-state h3 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.4rem;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-
-    .success-state p {
-      font-size: 0.9rem;
-      color: var(--gray-light);
-      line-height: 1.6;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 28px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 0.95rem;
-      letter-spacing: 0.1em;
-      color: var(--white);
-      text-decoration: none;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      font-size: 0.8rem;
-      color: var(--gray-light);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--gold); }
-
-    .footer-copy {
-      font-size: 0.75rem;
-      color: #555;
-      width: 100%;
-      text-align: center;
-      margin-top: 8px;
-    }
-
-    @media (max-width: 600px) {
-      nav { padding: 16px 20px; }
-      .hero { padding: 50px 20px 36px; }
-      .card-body { padding: 24px 20px; }
-      .card-header { padding: 20px; }
-      .trust-badges { padding: 20px; gap: 16px; }
-      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
-    }
-  </style>
+.submit-btn {
+  width: 100%;
+  background: var(--gold);
+  color: var(--black);
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.submit-btn:hover { background: var(--gold-dim); }
+.submit-btn:active { transform: scale(0.99); }
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 24px 36px 36px;
+  border-top: 1px solid var(--border);
+}
+.badge-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.75rem;
+  color: var(--gray-light);
+}
+.badge-item span { font-size: 0.95rem; }
+.success-state {
+  display: none;
+  text-align: center;
+  padding: 60px 36px;
+}
+.success-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(245, 200, 66, 0.15);
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin: 0 auto 20px;
+}
+.success-state h3 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.success-state p {
+  font-size: 0.9rem;
+  color: var(--gray-light);
+  line-height: 1.6;
+}
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  text-decoration: none;
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  font-size: 0.8rem;
+  color: var(--gray-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-copy {
+  font-size: 0.75rem;
+  color: #555;
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+}
+@media (max-width: 600px) {
+  nav { padding: 16px 20px; }
+  .hero { padding: 50px 20px 36px; }
+  .card-body { padding: 24px 20px; }
+  .card-header { padding: 20px; }
+  .trust-badges { padding: 20px; gap: 16px; }
+  footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+}
+</style>
 </head>
 <body>
 
-  <nav>
-    <a href="https://mojodigitalagency.com" class="nav-logo">MOJO<span>DIGITAL</span></a>
-    <a href="https://mojobuilder.vercel.app" class="nav-cta">Get Started</a>
-  </nav>
+<nav>
+  <a href="https://mojodigitalagency.com" class="nav-logo">MOJO<span>DIGITAL</span></a>
+  <a href="https://mojobuilder.vercel.app" class="nav-cta">Get Started</a>
+</nav>
 
-  <div class="hero">
-    <div class="badge">📱 SMS Opt-In</div>
-    <h1>Stay in the <em>Loop.</em></h1>
-    <p>Sign up to receive SMS updates from Mojo Digital Agency — appointment confirmations, onboarding updates, and project status messages.</p>
-  </div>
+<div class="hero">
+  <div class="badge">📱 SMS Opt-In</div>
+  <h1>Stay in the <em>Loop.</em></h1>
+  <p>Sign up to receive SMS updates from Mojo Digital Agency — appointment confirmations, onboarding updates, and project status messages.</p>
+</div>
 
-  <div class="main">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-icon">💬</div>
-        <div class="card-header-text">
-          <h2>SMS Consent Form</h2>
-          <p>A2P 10DLC Compliant · CTIA Guidelines</p>
+<div class="main">
+  <div class="card">
+
+    <div class="card-header">
+      <div class="card-header-icon">💬</div>
+      <div class="card-header-text">
+        <h2>SMS Consent Form</h2>
+        <p>A2P 10DLC Compliant · CTIA Guidelines</p>
+      </div>
+    </div>
+
+    <div class="card-body" id="form-body">
+      <form id="sms-form" novalidate>
+
+        <div class="field">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="first_name" placeholder="Marcus" />
         </div>
-      </div>
+        <div class="field">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="last_name" placeholder="Davis" />
+        </div>
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label for="phone">Mobile Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(831) 555-0100" />
+        </div>
 
-      <div class="card-body" id="form-body">
-        <form id="sms-form" novalidate>
+        <!--
+          CTIA / A2P 10DLC COMPLIANT CONSENT BLOCK
+          ✅ Checkbox appears FIRST (before disclosure text)
+          ✅ Checkbox is NOT pre-checked
+          ✅ Checkbox is optional — does not gate form submission
+          ✅ Business name in consent text
+          ✅ Message type, frequency, rates, opt-out, help — all present as standalone lines
+          ✅ Privacy Policy and Terms links present
+          ✅ "Consent not required to use services" statement present
+        -->
+        <div class="consent-box">
 
-          <div class="field">
-            <label for="fname">First Name</label>
-            <input type="text" id="fname" name="first_name" placeholder="Marcus" />
+          <!-- CHECKBOX FIRST — required by CTIA opt-in standards -->
+          <label class="consent-checkbox">
+            <input type="checkbox" id="sms-consent" name="sms_consent" />
+            <span class="consent-label">
+              Yes, I agree to receive SMS text messages from <strong>Mojo Digital Agency</strong>.
+              <span class="optional-note">Optional — you may submit this form and use our services without checking this box.</span>
+            </span>
+          </label>
+
+          <!-- DISCLOSURE TEXT — directly below checkbox -->
+          <div class="consent-disclosure">
+            <strong>Mojo Digital Agency</strong> will send SMS messages including appointment confirmations, onboarding updates, and project status notifications. Message frequency varies. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to unsubscribe at any time. Reply <strong>HELP</strong> for assistance. SMS consent is not required to purchase or use our services. View our <a href="https://mojodigitalagency.com/privacy.html" target="_blank">Privacy Policy</a> and <a href="https://mojodigitalagency.com/terms.html" target="_blank">Terms of Service</a>.
           </div>
 
-          <div class="field">
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" name="last_name" placeholder="Davis" />
-          </div>
+        </div>
 
-          <div class="field">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" />
-          </div>
+        <!-- STANDALONE COMPLIANCE DISCLOSURES — visible separate lines per CTIA -->
+        <div class="compliance-lines">
+          <p><strong>Message Types:</strong> Appointment confirmations, onboarding updates, and project status notifications from Mojo Digital Agency.</p>
+          <p><strong>Message Frequency:</strong> Message frequency varies.</p>
+          <p><strong>Msg &amp; Data Rates:</strong> Msg &amp; data rates may apply.</p>
+          <p><strong>Opt-Out:</strong> Reply STOP to unsubscribe at any time.</p>
+          <p><strong>Help:</strong> Reply HELP for assistance or contact <a href="mailto:hello@mojodigitalagency.com" style="color:var(--gold);text-decoration:none;">hello@mojodigitalagency.com</a>.</p>
+          <p><strong>Data Privacy:</strong> Your phone number and SMS consent data will never be sold, rented, or shared with third parties for any purpose.</p>
+        </div>
 
-          <div class="field">
-            <label for="phone">Mobile Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="(831) 555-0100" />
-          </div>
+        <button type="submit" class="submit-btn">✓ &nbsp;SUBMIT</button>
 
-          <!-- CONSENT CHECKBOX — NOT REQUIRED (CTIA compliant) -->
-          <div class="consent-box">
-            <p style="font-size:13px;color:#ccc;line-height:1.7;margin:0 0 14px 0;">
-              By opting in, you agree to receive SMS text messages from <strong style="color:#e8e8e8;">Mojo Digital Agency</strong>. Message types include: appointment confirmations, onboarding updates, and promotional offers. Message frequency varies. Msg &amp; data rates may apply. Reply <strong style="color:#e8e8e8;">STOP</strong> to unsubscribe at any time. Reply <strong style="color:#e8e8e8;">HELP</strong> for help. View our <a href="https://mojodigitalagency.com/privacy.html" target="_blank" style="color:#f5c842;">Privacy Policy</a> and <a href="https://mojodigitalagency.com/terms.html" target="_blank" style="color:#f5c842;">Terms of Service</a>.
-            </p>
-            <label class="consent-checkbox">
-              <input type="checkbox" id="sms-consent" name="sms_consent" />
-              <span class="consent-label">
-                <strong>Yes, I want to receive SMS messages from Mojo Digital Agency.</strong> (Optional — unchecking this box will not affect your access to our services.)
-              </span>
-            </label>
-          </div>
-
-          <div class="terms-block">
-            <p>
-              SMS opt-in is <strong style="color:#e8e8e8;">completely optional</strong>. Your phone number and opt-in data will <strong style="color:#e8e8e8;">never be sold, rented, or shared with third parties</strong>. Consent is not a condition of purchase or service access. Mojo Digital Agency — Message frequency varies. Msg &amp; data rates may apply. Reply STOP to unsubscribe. Reply HELP for assistance.
-            </p>
-          </div>
-
-          <!-- SMS Compliance Information -->
-          <div style="background:#0d0d0d;border:1px solid #333;border-radius:8px;padding:16px;margin-bottom:16px;font-size:12px;color:#999;line-height:1.8;">
-            <p style="margin:0 0 6px 0;"><strong style="color:#e8e8e8;">Message Types:</strong> Appointment confirmations, onboarding updates, and promotional offers from Mojo Digital Agency.</p>
-            <p style="margin:0 0 6px 0;"><strong style="color:#e8e8e8;">Message Frequency:</strong> Message frequency varies.</p>
-            <p style="margin:0 0 6px 0;"><strong style="color:#e8e8e8;">Rates:</strong> Msg &amp; data rates may apply.</p>
-            <p style="margin:0 0 6px 0;"><strong style="color:#e8e8e8;">Opt-Out:</strong> Reply STOP to unsubscribe at any time.</p>
-            <p style="margin:0;"><strong style="color:#e8e8e8;">Help:</strong> Reply HELP for assistance.</p>
-          </div>
-
-          <button type="submit" class="submit-btn">✓ &nbsp;SUBMIT</button>
-
-        </form>
-      </div>
-
-      <div class="success-state" id="success-state">
-        <div class="success-icon">✓</div>
-        <h3 id="success-title">You're opted in!</h3>
-        <p id="success-msg">Thanks — you'll receive a confirmation text shortly. Reply STOP at any time to unsubscribe.</p>
-      </div>
-
-      <div class="trust-badges">
-        <div class="badge-item"><span>🔒</span> Never sold or shared</div>
-        <div class="badge-item"><span>📵</span> Reply STOP anytime</div>
-        <div class="badge-item"><span>✅</span> A2P 10DLC compliant</div>
-      </div>
+      </form>
     </div>
+
+    <div class="success-state" id="success-state">
+      <div class="success-icon">✓</div>
+      <h3 id="success-title">You're opted in!</h3>
+      <p id="success-msg">Thanks — you'll receive a confirmation text shortly. Reply STOP at any time to unsubscribe.</p>
+    </div>
+
+    <div class="trust-badges">
+      <div class="badge-item"><span>🔒</span> Never sold or shared</div>
+      <div class="badge-item"><span>📵</span> Reply STOP anytime</div>
+      <div class="badge-item"><span>✅</span> A2P 10DLC compliant</div>
+    </div>
+
   </div>
+</div>
 
-  <footer>
-    <a href="https://mojodigitalagency.com" class="footer-logo">MOJODIGITAL</a>
-    <div class="footer-links">
-      <a href="https://mojodigitalagency.com">Home</a>
-      <a href="https://mojodigitalagency.com/privacy.html">Privacy Policy</a>
-      <a href="https://mojodigitalagency.com/terms.html">Terms of Service</a>
-      <a href="mailto:hello@mojodigitalagency.com">Contact</a>
-    </div>
-    <p class="footer-copy">© 2026 Mojo Digital Agency · All rights reserved.</p>
-  </footer>
+<footer>
+  <a href="https://mojodigitalagency.com" class="footer-logo">MOJODIGITAL</a>
+  <div class="footer-links">
+    <a href="https://mojodigitalagency.com">Home</a>
+    <a href="https://mojodigitalagency.com/privacy.html">Privacy Policy</a>
+    <a href="https://mojodigitalagency.com/terms.html">Terms of Service</a>
+    <a href="mailto:hello@mojodigitalagency.com">Contact</a>
+  </div>
+  <p class="footer-copy">© 2026 Mojo Digital Agency · All rights reserved.</p>
+</footer>
 
-  <script>
-    const form = document.getElementById('sms-form');
-    const consentBox = document.getElementById('sms-consent');
-    const consentError = document.getElementById('consent-error');
-    const formBody = document.getElementById('form-body');
-    const successState = document.getElementById('success-state');
+<script>
+const form = document.getElementById('sms-form');
+const consentBox = document.getElementById('sms-consent');
+const formBody = document.getElementById('form-body');
+const successState = document.getElementById('success-state');
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var optedIn = consentBox.checked;
-      consentError.style.display = 'none';
-      formBody.style.display = 'none';
-      // Show appropriate success message
-      if(optedIn){
-        document.getElementById('success-title').textContent = "You're opted in!";
-        document.getElementById('success-msg').textContent = "Thanks — you'll receive a confirmation text shortly. Reply STOP at any time to unsubscribe.";
-      } else {
-        document.getElementById('success-title').textContent = "Form submitted!";
-        document.getElementById('success-msg').textContent = "Thanks for reaching out. You have not opted in to SMS messages.";
-      }
-      successState.style.display = 'block';
-    });
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  var optedIn = consentBox.checked;
 
-    consentBox.addEventListener('change', function() {
-      if (this.checked) consentError.style.display = 'none';
-    });
-  </script>
+  formBody.style.display = 'none';
+
+  if (optedIn) {
+    document.getElementById('success-title').textContent = "You're opted in!";
+    document.getElementById('success-msg').textContent = "Thanks — you'll receive a confirmation text shortly. Reply STOP at any time to unsubscribe.";
+  } else {
+    document.getElementById('success-title').textContent = "Form submitted!";
+    document.getElementById('success-msg').textContent = "Thanks for reaching out. You have not opted in to SMS messages. You can still access all of our services.";
+  }
+
+  successState.style.display = 'block';
+});
+</script>
 
 </body>
 </html>
