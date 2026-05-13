@@ -415,14 +415,26 @@ footer {
         </div>
 
         <!-- A2P 10DLC / CTIA COMPLIANT CONSENT BLOCK -->
+        <!-- GHL requires TWO separate checkboxes with exact language -->
         <div class="consent-box">
 
-          <!-- Single label wraps everything — scanner associates all disclosure text with the checkbox -->
-          <label class="consent-checkbox" for="sms-consent">
-            <input type="checkbox" id="sms-consent" name="sms_consent" />
+          <!-- CHECKBOX 1: NON-MARKETING (transactional) -->
+          <label class="consent-checkbox" for="sms-consent-nonmarketing">
+            <input type="checkbox" id="sms-consent-nonmarketing" name="sms_consent_nonmarketing" />
             <span class="consent-label">
-              By checking this box, I agree to receive SMS text messages from Mojo Digital Agency including appointment confirmations, onboarding updates, and project status notifications. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe at any time. Reply HELP for help. Consent is not a condition of purchase. View our <a href="https://mojodigitalagency.com/privacy.html" target="_blank">Privacy Policy</a> and <a href="https://mojodigitalagency.com/terms.html" target="_blank">Terms of Service</a>.
-              <span class="optional-note">This is optional — you may still use our services without checking this box.</span>
+              I consent to receive non-marketing text messages from <strong>Mojo Digital Agency</strong> about appointment confirmations, onboarding updates, and project status notifications. Message frequency may vary, message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
+              <span class="optional-note">Optional — checking this box is not required to use our services.</span>
+            </span>
+          </label>
+
+          <div style="height:14px;"></div>
+
+          <!-- CHECKBOX 2: MARKETING -->
+          <label class="consent-checkbox" for="sms-consent-marketing">
+            <input type="checkbox" id="sms-consent-marketing" name="sms_consent_marketing" />
+            <span class="consent-label">
+              I consent to receive marketing text messages, about special offers, discounts, and service updates, from <strong>Mojo Digital Agency</strong> at the phone number provided. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
+              <span class="optional-note">Optional — checking this box is not required to use our services.</span>
             </span>
           </label>
 
@@ -471,17 +483,17 @@ footer {
 
 <script>
 const form = document.getElementById('sms-form');
-const consentBox = document.getElementById('sms-consent');
 const formBody = document.getElementById('form-body');
 const successState = document.getElementById('success-state');
 
 form.addEventListener('submit', function(e) {
   e.preventDefault();
-  var optedIn = consentBox.checked;
+  var marketingChecked = document.getElementById('sms-consent-marketing').checked;
+  var nonMarketingChecked = document.getElementById('sms-consent-nonmarketing').checked;
 
   formBody.style.display = 'none';
 
-  if (optedIn) {
+  if (marketingChecked || nonMarketingChecked) {
     document.getElementById('success-title').textContent = "You're opted in!";
     document.getElementById('success-msg').textContent = "Thanks — you'll receive a confirmation text shortly. Reply STOP at any time to unsubscribe.";
   } else {
