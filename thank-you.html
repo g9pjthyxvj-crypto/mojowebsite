@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to Mojo Digital Agency 🎉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:#0A0A0A;color:#F0EDE8;min-height:100vh}
+body{font-family:'DM Sans',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+a{color:#C9A84C;text-decoration:none}
+a:hover{text-decoration:underline}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.95);border-bottom:1px solid rgba(201,168,76,0.08);backdrop-filter:blur(20px)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:4px;color:#F0EDE8}
+.nav-logo span{color:#C9A84C}
+
+.page-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:calc(72px + 60px) 6% 80px;position:relative;overflow:hidden}
+.page-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(201,168,76,0.06) 0%,transparent 65%);pointer-events:none}
+
+.inner{width:100%;max-width:640px;text-align:center;position:relative;z-index:1}
+
+.check-circle{width:80px;height:80px;border-radius:50%;background:rgba(201,168,76,0.1);border:2px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 32px;font-size:36px;animation:popIn .6s ease forwards}
+
+@keyframes popIn{0%{transform:scale(0);opacity:0}70%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:#C9A84C;margin-bottom:14px}
+
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,72px);letter-spacing:3px;color:#F0EDE8;line-height:.92;margin-bottom:16px}
+h1 span{color:#C9A84C;display:block}
+
+.sub{font-size:16px;color:#888;line-height:1.9;margin-bottom:48px;max-width:480px;margin-left:auto;margin-right:auto}
+.sub strong{color:#F0EDE8;font-weight:500}
+
+.steps{display:flex;flex-direction:column;gap:1px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.08);margin-bottom:48px;text-align:left}
+.step{background:#0D0D0D;padding:20px 24px;display:flex;align-items:flex-start;gap:16px}
+.step:hover{background:#111111}
+.step-num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:rgba(201,168,76,0.3);line-height:1;flex-shrink:0;letter-spacing:1px}
+.step-content{}
+.step-title{font-size:14px;font-weight:600;color:#F0EDE8;margin-bottom:4px}
+.step-desc{font-size:13px;color:#888;line-height:1.7}
+
+.cta-wrap{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.btn-primary{background:#C9A84C;color:#0A0A0A;padding:16px 36px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;transition:all .3s}
+.btn-primary:hover{background:#E8C96A;transform:translateY(-2px)}
+.btn-secondary{background:transparent;color:#F0EDE8;padding:16px 32px;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(240,237,232,0.2);display:inline-flex;align-items:center;gap:10px;transition:all .3s}
+.btn-secondary:hover{border-color:#C9A84C;color:#C9A84C}
+
+.contact-box{background:#111111;border:1px solid rgba(201,168,76,0.08);padding:24px;margin-bottom:40px}
+.contact-title{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#555;margin-bottom:16px}
+.contact-items{display:flex;gap:32px;justify-content:center;flex-wrap:wrap}
+.contact-item{font-size:13px;color:#888}
+.contact-item span{color:#C9A84C;display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.contact-item a{color:#888;transition:color .25s}
+.contact-item a:hover{color:#C9A84C;text-decoration:none}
+
+footer{background:#060606;border-top:1px solid rgba(201,168,76,0.06);padding:32px 6%;text-align:center}
+.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:4px;color:#F0EDE8;display:block;margin-bottom:8px}
+.foot-logo span{color:#C9A84C}
+.foot-copy{font-size:11px;color:#444;margin-top:8px}
+
+@media(max-width:640px){
+  .page-wrap{padding:calc(72px + 40px) 5% 60px}
+  .cta-wrap{flex-direction:column;align-items:center}
+  .contact-items{flex-direction:column;gap:16px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://mojodigitalagency.com" class="nav-logo">MOJO<span>DIGITAL</span></a>
+</nav>
+
+<div class="page-wrap">
+  <div class="inner">
+
+    <div class="check-circle">🎉</div>
+    <div class="eyebrow">Payment Confirmed</div>
+    <h1>WELCOME TO<span>THE FAMILY.</span></h1>
+    <p class="sub">Your payment has been received and you're officially a Mojo Digital client. <strong>Check your email</strong> — your onboarding form is on its way. The sooner you complete it the sooner we start building!</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-title">Check Your Email</div>
+          <div class="step-desc">Your onboarding form has been sent to your email. It takes about 10 minutes to complete and gives us everything we need to build your site.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-title">Complete Your Forms</div>
+          <div class="step-desc">We'll send you two forms — one for your website and one for your booking system. The build begins the moment we receive both.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-title">We Build Everything</div>
+          <div class="step-desc">Our team gets to work immediately. Your complete digital system will be ready for your review within 5 business days.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-title">Review & Go Live</div>
+          <div class="step-desc">We'll send you a Loom walkthrough of everything we built. Once you approve it we take it live immediately.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://mojodigitalagency.com" class="btn-secondary">Back to Home →</a>
+    </div>
+
+    <div class="contact-box">
+      <div class="contact-title">Need Help? We're Here</div>
+      <div class="contact-items">
+        <div class="contact-item">
+          <span>Email</span>
+          <a href="mailto:hello@mojodigitalagency.com">hello@mojodigitalagency.com</a>
+        </div>
+        <div class="contact-item">
+          <span>Phone</span>
+          <a href="tel:8315664767">(831) 566-4767</a>
+        </div>
+        <div class="contact-item">
+          <span>Website</span>
+          <a href="https://mojodigitalagency.com">mojodigitalagency.com</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <a href="https://mojodigitalagency.com" class="foot-logo">MOJO<span>DIGITAL</span></a>
+  <div class="foot-copy">© 2026 Mojo Digital Agency · All rights reserved.</div>
+</footer>
+
+</body>
+</html>
